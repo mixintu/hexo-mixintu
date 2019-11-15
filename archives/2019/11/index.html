@@ -109,11 +109,16 @@
 <script src="/live2d-widget/autoload.js"></script>
 <style rel="stylesheet" type="text/css">
   body {
-  background: url(/images/background.png);
+  /*background: url(/images/background.png);*/
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
+}
+
+// 修改主体透明度
+.main {
+  opacity: 0.5;
 }
 // 修改主体透明度
 .main-inner {
@@ -122,14 +127,14 @@
 </style>
 <body itemscope itemtype="http://schema.org/WebPage">
   <!-- 雪花特效 -->
-  <!--
+  
 <script type="text/javascript">
   var windowWidth = $(window).width();
   if (windowWidth > 480) {
     document.write('<script type="text/javascript" src="/js/src/snow.js"><\/script>');
   }
 </script>
--->
+
     
 
   <div class="container use-motion">
