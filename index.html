@@ -190,6 +190,102 @@ border-radius: 10px;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/pandas%E5%88%86%E6%9E%90CPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E5%88%A9%E7%94%A8%E7%8E%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="迷心兔">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/28/pandas%E5%88%86%E6%9E%90CPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E5%88%A9%E7%94%A8%E7%8E%87/" class="post-title-link" itemprop="url">pandas分析CPU和内存的利用率</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-28 20:31:55 / Modified: 20:33:14" itemprop="dateCreated datePublished" datetime="2019-11-28T20:31:55+08:00">2019-11-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 【https://www.cnblogs.com/ratels/p/11037661.html】</span></span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> strftime, localtime, sleep</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag = <span class="number">1</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'record.csv'</span>, <span class="string">'w'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    writer = csv.writer(csvfile)</span><br><span class="line">    writer.writerow([<span class="string">"date"</span>, <span class="string">"cpu"</span>, <span class="string">"memory"</span>])</span><br><span class="line">    <span class="keyword">while</span> flag &lt; <span class="number">20</span>:</span><br><span class="line">        result = [(</span><br><span class="line">            strftime(<span class="string">"%H:%M:%S"</span>, localtime()),</span><br><span class="line">            psutil.cpu_percent(<span class="number">1</span>),</span><br><span class="line">            psutil.virtual_memory().percent,</span><br><span class="line">        )]</span><br><span class="line">        print(result)</span><br><span class="line">        writer.writerows(result)</span><br><span class="line">        flag += <span class="number">1</span></span><br><span class="line">        sleep(<span class="number">2</span>)</span><br><span class="line">print(<span class="string">"完成"</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[(&apos;19:51:23&apos;, 12.6, 65.6)]
+[(&apos;19:51:26&apos;, 11.9, 65.5)]
+[(&apos;19:51:29&apos;, 14.6, 66.4)]
+[(&apos;19:51:32&apos;, 10.8, 66.4)]
+[(&apos;19:51:35&apos;, 12.0, 65.9)]
+[(&apos;19:51:38&apos;, 7.3, 66.0)]
+[(&apos;19:51:41&apos;, 7.0, 66.3)]
+[(&apos;19:51:44&apos;, 7.8, 63.8)]
+[(&apos;19:51:47&apos;, 10.1, 63.8)]
+[(&apos;19:51:50&apos;, 30.9, 64.8)]
+[(&apos;19:51:53&apos;, 12.5, 66.3)]
+[(&apos;19:51:56&apos;, 6.2, 66.1)]
+[(&apos;19:51:59&apos;, 31.3, 68.4)]
+[(&apos;19:52:02&apos;, 12.0, 68.9)]
+[(&apos;19:52:05&apos;, 7.4, 68.8)]
+[(&apos;19:52:08&apos;, 5.4, 68.3)]
+[(&apos;19:52:11&apos;, 20.3, 68.3)]
+[(&apos;19:52:14&apos;, 2.7, 67.9)]
+[(&apos;19:52:17&apos;, 7.7, 67.8)]
+完成</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> Line</span><br><span class="line"></span><br><span class="line">df=pd.read_csv(<span class="string">"record.csv"</span>)<span class="comment">#读取csv文件</span></span><br><span class="line"></span><br><span class="line">line = Line(title = <span class="string">"折线图"</span>,width = <span class="number">600</span>,height = <span class="number">420</span>)</span><br><span class="line">date=df[<span class="string">"date"</span>].tolist()</span><br><span class="line">cpu=df[<span class="string">"cpu"</span>].tolist()</span><br><span class="line">memory=df[<span class="string">"memory"</span>].tolist()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'统计信息：\n'</span>,df.describe())<span class="comment">#统计信息</span></span><br><span class="line"></span><br><span class="line">line.add(name = <span class="string">"CPU利用率"</span>, x_axis = date, y_axis = cpu,</span><br><span class="line">line_width = <span class="number">3</span>,line_color = <span class="string">'red'</span>,is_datazoom_show = <span class="literal">True</span>)</span><br><span class="line">line.add(name = <span class="string">"内存利用率"</span>, x_axis = date, y_axis = memory,</span><br><span class="line">line_width = <span class="number">2</span>,line_color = <span class="string">'cyan'</span>,is_datazoom_show = <span class="literal">True</span>)</span><br><span class="line">line.render( <span class="string">'折线图示范.html'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"完成"</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>cpu利用率平均值是：
+12.131579
+内存利用率平均值是：
+66.594737
+统计信息：
+              cpu     memory
+count  19.000000  19.000000
+mean   12.131579  66.594737
+std     7.741522   1.577084
+min     2.700000  63.800000
+25%     7.350000  65.750000
+50%    10.800000  66.300000
+75%    12.550000  68.100000
+max    31.300000  68.900000
+完成</code></pre><p><img src="/2019/11/28/pandas%E5%88%86%E6%9E%90CPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E5%88%A9%E7%94%A8%E7%8E%87/%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/fabiaoqing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -484,7 +580,7 @@ border-radius: 10px;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
