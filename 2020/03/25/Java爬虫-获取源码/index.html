@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>Java爬虫-获取源码 | 迷心兔</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+	<meta name="generator" content="hexo">
+	<meta name="author" content="迷心兔">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
+	<link rel="apple-touch-icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png"/>
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="迷心兔">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Java爬虫-获取源码 | 迷心兔">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="https://mixintu.github.io/2020/03/25/Java%E7%88%AC%E8%99%AB-%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81/">
+
+	
+	<meta property="article:published_time" content="2020-03-25T21:03:09+08:00"/> 
+	<meta property="article:author" content="迷心兔">
+	<meta property="article:published_first" content="迷心兔, /2020/03/25/Java%E7%88%AC%E8%99%AB-%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81/" />
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+        </ul> 
+    </div>
+     
+    <div class="site-nav-right">
+         
+        
+<div class="social-links" >
+    
+    
+    
+    <a class="social-link" title="facebook" href="https://www.facebook.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+    </a>
+    
+    
+    <a class="social-link" title="twitter" href="https://www.twitter.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+    </a>
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time  class="post-full-meta-date" datetime="2020-03-25T13:01:55.098Z">
+                    2020-03-25
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                
+            </div>
+            <h1 class="post-full-title">Java爬虫-获取源码</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(http://pic.ik123.com/uploads/allimg/180413/4-1P4131F911.jpg)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.net.MalformedURLException;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.net.URLConnection;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">web</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">web</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        JFrame frame=<span class="keyword">new</span> JFrame(<span class="string">"获取源码"</span>);</span><br><span class="line">        FlowLayout flowLayout=<span class="keyword">new</span> FlowLayout(<span class="number">0</span>,<span class="number">5</span>,<span class="number">5</span>);</span><br><span class="line">        JPanel panel=<span class="keyword">new</span> JPanel();</span><br><span class="line">        JTextField textField=<span class="keyword">new</span> JTextField(<span class="number">30</span>);</span><br><span class="line">        JTextArea area=<span class="keyword">new</span> JTextArea(<span class="string">"源码"</span>);</span><br><span class="line">        <span class="comment">//设置每列23字符  每行41字符</span></span><br><span class="line">        area.setRows(<span class="number">23</span>);area.setColumns(<span class="number">41</span>);</span><br><span class="line">        <span class="comment">//建立一个空的边界，并指定上下左右的宽度，在这些宽度中不能作绘图的效果</span></span><br><span class="line">        area.setBorder(BorderFactory.createEmptyBorder(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">5</span>));</span><br><span class="line">        area.setTabSize(<span class="number">10</span>);<span class="comment">//设置Tab为10个字符</span></span><br><span class="line">        area.setLineWrap(<span class="keyword">true</span>);<span class="comment">//自动换行</span></span><br><span class="line">        JButton button=<span class="keyword">new</span> JButton(<span class="string">"获取"</span>);</span><br><span class="line">        button.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">                ws s=<span class="keyword">new</span> ws();</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    area.setText(s.re(textField.getText()));</span><br><span class="line">                &#125; <span class="keyword">catch</span> (MalformedURLException e1) &#123;</span><br><span class="line">                    e1.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        panel.add(textField);</span><br><span class="line">        panel.setLayout(flowLayout);</span><br><span class="line">        panel.add(button);</span><br><span class="line">        panel.add(<span class="keyword">new</span> JScrollPane(area));</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setBounds(<span class="number">200</span>,<span class="number">200</span>,<span class="number">500</span>,<span class="number">500</span>);</span><br><span class="line">        frame.getContentPane().add(panel);</span><br><span class="line">        frame.setResizable(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ws</span> <span class="keyword">extends</span> <span class="title">web</span></span>&#123;</span><br><span class="line">        String string=<span class="keyword">null</span>;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">re</span><span class="params">(String url)</span> <span class="keyword">throws</span> MalformedURLException </span>&#123;</span><br><span class="line">            URL url2=<span class="keyword">new</span> URL(url);</span><br><span class="line">            String line=<span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                URLConnection connection=url2.openConnection();</span><br><span class="line">                BufferedReader bufferedReader=<span class="keyword">new</span> BufferedReader(</span><br><span class="line">                        <span class="keyword">new</span> InputStreamReader(connection.getInputStream(),<span class="string">"utf-8"</span>));</span><br><span class="line">                <span class="keyword">while</span>((line=bufferedReader.readLine())!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    string=string+line;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                System.out.println(<span class="string">"出错！"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> string;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                </article>
+                <ul class="tags-postTags">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="Java面试题：单利模式" href="/2020/03/23/Java%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8D%95%E5%88%A9%E6%A8%A1%E5%BC%8F/">
+            Java面试题：单利模式 →
+        </a>
+        
+    </nav>
+
+    
+</div>
+
+
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card"  style="background-image: url(https://i.loli.net/2017/11/26/5a19c56faa29f.jpg)"  >
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; 迷心兔 &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2020/03/25/Java%E7%88%AC%E8%99%AB-%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81/">Java爬虫-获取源码</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/03/23/Java%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8D%95%E5%88%A9%E6%A8%A1%E5%BC%8F/">Java面试题：单利模式</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/03/23/Java%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%85%8B%E9%9A%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%85%E5%85%8B%E9%9A%86/">Java面试题：克隆对象的浅克隆</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+
+            
+            
+            
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="迷心兔">迷心兔 &copy; 2020</a>
+			
+				
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+
+        
+        
+
+        
+        
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
