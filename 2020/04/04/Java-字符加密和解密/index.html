@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>Java-字符加密和解密 | 迷心兔</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+	<meta name="generator" content="hexo">
+	<meta name="author" content="迷心兔">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
+	<link rel="apple-touch-icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png"/>
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="迷心兔">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Java-字符加密和解密 | 迷心兔">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="https://mixintu.github.io/2020/04/04/Java-%E5%AD%97%E7%AC%A6%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86/">
+
+	
+	<meta property="article:published_time" content="2020-04-04T20:04:64+08:00"/> 
+	<meta property="article:author" content="迷心兔">
+	<meta property="article:published_first" content="迷心兔, /2020/04/04/Java-%E5%AD%97%E7%AC%A6%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86/" />
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+        </ul> 
+    </div>
+     
+    <div class="site-nav-right">
+         
+        
+<div class="social-links" >
+    
+    
+    
+    <a class="social-link" title="facebook" href="https://www.facebook.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+    </a>
+    
+    
+    <a class="social-link" title="twitter" href="https://www.twitter.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+    </a>
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time  class="post-full-meta-date" datetime="2020-04-04T12:28:46.640Z">
+                    2020-04-4
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                
+            </div>
+            <h1 class="post-full-title">Java-字符加密和解密</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(http://pic.ik123.com/uploads/allimg/190402/4-1Z402164T1.jpg)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <p>原文：<a href="https://github.com/zmh3788/thesixsectorTeam" target="_blank" rel="noopener">https://github.com/zmh3788/thesixsectorTeam</a><br>原文：<a href="https://blog.csdn.net/manmonth2004/article/details/83642676" target="_blank" rel="noopener">https://blog.csdn.net/manmonth2004/article/details/83642676</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> java.security.Key;</span><br><span class="line"><span class="keyword">import</span> java.security.Security;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EncryptUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">char</span>[] hexCode = <span class="string">"0123456789ABCDEF"</span>.toCharArray();</span><br><span class="line">    <span class="comment">//设置默认密匙</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String strDefaultKey = <span class="string">"defaultKey"</span>;</span><br><span class="line">    <span class="comment">//加密</span></span><br><span class="line">    <span class="keyword">private</span> Cipher encryptCipher = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//解密</span></span><br><span class="line">    <span class="keyword">private</span> Cipher decryptCipher = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 默认构造方法，使用默认密钥及算法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EncryptUtil</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(strDefaultKey);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 指定密钥构造方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> strKey 指定的密钥</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EncryptUtil</span><span class="params">(String strKey)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 这里暂时不会使用这里加密类</span></span><br><span class="line"><span class="comment">//        Security.addProvider(new com.sun.crypto.provider.SunJCE());</span></span><br><span class="line">        Key key = getKey(strKey.getBytes());<span class="comment">// 密钥</span></span><br><span class="line"></span><br><span class="line">        encryptCipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">        encryptCipher.init(Cipher.ENCRYPT_MODE, key);</span><br><span class="line"></span><br><span class="line">        decryptCipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">        decryptCipher.init(Cipher.DECRYPT_MODE, key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 从指定字符串生成密钥，密钥所需的字节数组长度为8位 不足8位时后面补0，超出8位只取前8位</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> byteArrTmp 构成该字符串的字节数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 生成的密钥</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> java.lang.Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Key <span class="title">getKey</span><span class="params">(<span class="keyword">byte</span>[] byteArrTmp)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建一个空的8位字节数组（默认值为0）</span></span><br><span class="line">        <span class="keyword">byte</span>[] byteArr = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">8</span>];</span><br><span class="line">        <span class="comment">// 2.将原始字节数组转换为8位</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteArrTmp.length &amp;&amp; i &lt; byteArr.length; i++) &#123;</span><br><span class="line">            byteArr[i] = byteArrTmp[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 返回密钥</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> javax.crypto.spec.SecretKeySpec(byteArr, <span class="string">"DES"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1.加密字节数组</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arrB 需加密的字节数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 加密后的字节数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] encrypt(<span class="keyword">byte</span>[] arrB) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">"Cipher加密"</span>);</span><br><span class="line">        <span class="keyword">return</span> encryptCipher.doFinal(arrB);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 2.将byteArr在内存中所表示的16进制转换为字符串 00~FF</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> byteArr 需要转换的byte数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 转换后的字符串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">byteArr2HexStr</span><span class="params">(<span class="keyword">byte</span>[] byteArr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> iLen = byteArr.length;</span><br><span class="line">        <span class="keyword">byte</span>[] intTmps = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">16</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 每个字符用两个byte才能表示，所以字符串的长度等于数组长度的两倍</span></span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder(iLen * <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> anArrB : byteArr) &#123;</span><br><span class="line">            <span class="keyword">int</span> intTmp = anArrB;</span><br><span class="line">            <span class="comment">// 把负数转换为正数</span></span><br><span class="line">            <span class="keyword">while</span> (intTmp &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                intTmp = intTmp + <span class="number">256</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 小于0F的数需要在前面补0</span></span><br><span class="line">            <span class="keyword">if</span> (intTmp &lt; <span class="number">16</span>) &#123;</span><br><span class="line">                stringBuilder.append(<span class="string">"0"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 将byteArr在内存中所表示的16进制转换为字符串 00~FF</span></span><br><span class="line">            stringBuilder.append(Integer.toString(intTmp, <span class="number">16</span>));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//  此处做演示</span></span><br><span class="line">            intTmps[i] = (<span class="keyword">byte</span>) intTmp;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        String byteArrHex = <span class="keyword">this</span>.printHexBinary(byteArr);</span><br><span class="line">        System.out.printf(<span class="string">"byteArrHex十六进制: %s\n"</span>, byteArrHex);</span><br><span class="line">        <span class="keyword">return</span> stringBuilder.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 3.加密字符串</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> strIn 需加密的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 加密后的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">encrypt</span><span class="params">(String strIn)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">"\n加密前的字符串:%s  长度:%d\n"</span>, strIn, strIn.length());</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == strIn || strIn.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> byteArr2HexStr(encrypt(strIn.getBytes()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1.将表示16进制值的字符串转换为byte数组</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> strIn 需要转换的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 转换后的byte数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] hexStr2ByteArr(String strIn) &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] arrB = strIn.getBytes();</span><br><span class="line">        <span class="keyword">int</span> iLen = arrB.length;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 两个byte表示一个字符，所以字节数组长度是字符串长度除以2</span></span><br><span class="line">        <span class="keyword">byte</span>[] arrOut = <span class="keyword">new</span> <span class="keyword">byte</span>[iLen / <span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; iLen; i = i + <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// 隔两位取出取出一个字符【输出：ef 10 d4 37 b5 68 84 3c】</span></span><br><span class="line">            String strTmp = <span class="keyword">new</span> String(arrB, i, <span class="number">2</span>);</span><br><span class="line">            arrOut[i / <span class="number">2</span>] = (<span class="keyword">byte</span>) Integer.parseInt(strTmp, <span class="number">16</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String arrOutHex = <span class="keyword">this</span>.printHexBinary(arrOut);</span><br><span class="line">        System.out.printf(<span class="string">"arrOutHex十六进制: %s\n"</span>, arrOutHex);</span><br><span class="line">        <span class="keyword">return</span> arrOut;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 2.解密字节数组</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arrB 需解密的字节数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 解密后的字节数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] arrB) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">"Cipher解密"</span>);</span><br><span class="line">        <span class="keyword">return</span> decryptCipher.doFinal(arrB);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 3.解密字符串</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> strIn 需解密的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 解密后的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">decrypt</span><span class="params">(String strIn)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">"\n解密前的字符串:%s  长度:%d\n"</span>, strIn, strIn.length());</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == strIn || strIn.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(decrypt(hexStr2ByteArr(strIn)));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// byte数组转换成十六进制</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">printHexBinary</span><span class="params">(<span class="keyword">byte</span>[] data)</span> </span>&#123;</span><br><span class="line">        StringBuilder r = <span class="keyword">new</span> StringBuilder(data.length * <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> b : data) &#123;</span><br><span class="line">            r.append(<span class="string">" "</span> + hexCode[(b &gt;&gt; <span class="number">4</span>) &amp; <span class="number">0xF</span>]);</span><br><span class="line">            r.append(hexCode[(b &amp; <span class="number">0xF</span>)]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        EncryptUtil encryptUtil = <span class="keyword">new</span> EncryptUtil();</span><br><span class="line"></span><br><span class="line">        System.out.printf(<span class="string">"加密后的字符串:%s\n"</span>, encryptUtil.encrypt(<span class="string">"MiXinTu"</span>));</span><br><span class="line">        System.out.printf(<span class="string">"解密后的字符串:%s\n"</span>, encryptUtil.decrypt(<span class="string">"ef10d437b568843c"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="输出结果："><a href="#输出结果：" class="headerlink" title="输出结果："></a>输出结果：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">加密前的字符串:MiXinTu  长度:<span class="number">7</span></span><br><span class="line">Cipher加密</span><br><span class="line">byteArrHex十六进制:  EF <span class="number">10</span> D4 <span class="number">37</span> B5 <span class="number">68</span> <span class="number">84</span> <span class="number">3</span>C</span><br><span class="line">加密后的字符串:ef10d437b568843c</span><br><span class="line"></span><br><span class="line">解密前的字符串:ef10d437b568843c  长度:<span class="number">16</span></span><br><span class="line">arrOutHex十六进制:  EF <span class="number">10</span> D4 <span class="number">37</span> B5 <span class="number">68</span> <span class="number">84</span> <span class="number">3</span>C</span><br><span class="line">Cipher解密</span><br><span class="line">解密后的字符串:MiXinTu</span><br></pre></td></tr></table></figure>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="Java-枚举实例" href="/2020/04/03/Java-%E6%9E%9A%E4%B8%BE%E5%AE%9E%E4%BE%8B/">
+            Java-枚举实例 →
+        </a>
+        
+    </nav>
+
+    
+</div>
+
+
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card"  style="background-image: url(https://i.loli.net/2017/11/26/5a19c56faa29f.jpg)"  >
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; 迷心兔 &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2020/04/04/Java-%E5%AD%97%E7%AC%A6%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86/">Java-字符加密和解密</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/04/03/Java-%E6%9E%9A%E4%B8%BE%E5%AE%9E%E4%BE%8B/">Java-枚举实例</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/04/03/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">Java-适配器模式</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+
+            
+            
+            
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="迷心兔">迷心兔 &copy; 2020</a>
+			
+				
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+
+        
+        
+
+        
+        
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
