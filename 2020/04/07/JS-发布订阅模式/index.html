@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>JS-发布订阅模式 | 迷心兔</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+	<meta name="generator" content="hexo">
+	<meta name="author" content="迷心兔">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
+	<link rel="apple-touch-icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png"/>
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="迷心兔">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="JS-发布订阅模式 | 迷心兔">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="https://mixintu.github.io/2020/04/07/JS-%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/">
+
+	
+	<meta property="article:published_time" content="2020-04-07T12:04:32+08:00"/> 
+	<meta property="article:author" content="迷心兔">
+	<meta property="article:published_first" content="迷心兔, /2020/04/07/JS-%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/" />
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+        </ul> 
+    </div>
+     
+    <div class="site-nav-right">
+         
+        
+<div class="social-links" >
+    
+    
+    
+    <a class="social-link" title="facebook" href="https://www.facebook.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+    </a>
+    
+    
+    <a class="social-link" title="twitter" href="https://www.twitter.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+    </a>
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time  class="post-full-meta-date" datetime="2020-04-07T04:36:07.322Z">
+                    2020-04-7
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                
+            </div>
+            <h1 class="post-full-title">JS-发布订阅模式</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(http://pic.ik123.com/uploads/allimg/171027/4-1G02F94248.jpg)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <p>原文：<a href="https://coffe1891.gitbook.io/frontend-hard-mode-interview/7/7.1.5" target="_blank" rel="noopener">https://coffe1891.gitbook.io/frontend-hard-mode-interview/7/7.1.5</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> eventEmitter = &#123;</span><br><span class="line">	<span class="comment">// 缓存列表</span></span><br><span class="line">	list: &#123;&#125;,</span><br><span class="line">	<span class="comment">// 订阅多次</span></span><br><span class="line">	on(event, fn) &#123;</span><br><span class="line">		<span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">		<span class="comment">// 如果对象中没有对应的 event 值，也就是说明没有订阅过，就给 event 创建个缓存列表</span></span><br><span class="line">		<span class="comment">// 如有对象中有相应的 event 值，把 fn 添加到对应 event 的缓存列表里</span></span><br><span class="line">		(_this.list[event] || (_this.list[event] = [])).push(fn);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">console</span>.log(fn.name, <span class="string">'订阅'</span>);</span><br><span class="line">		<span class="keyword">return</span> _this;</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 订阅一次</span></span><br><span class="line">	once(event, fn) &#123;</span><br><span class="line">		<span class="comment">// 先绑定，调用后删除</span></span><br><span class="line">		<span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 订阅</span></span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">on_tmp</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			fn.apply(_this, <span class="built_in">arguments</span>);</span><br><span class="line">			_this.off(event, on_tmp);</span><br><span class="line">		&#125;</span><br><span class="line">		on_tmp.fn = fn;</span><br><span class="line">		_this.on(event, on_tmp);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="built_in">console</span>.log(fn.name, <span class="string">'订阅一次'</span>);</span><br><span class="line">		<span class="keyword">return</span> _this;</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 取消订阅</span></span><br><span class="line">	off(event, fn) &#123;</span><br><span class="line">		<span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">		<span class="keyword">let</span> fns = _this.list[event];</span><br><span class="line">		<span class="comment">// 如果缓存列表中没有相应的 fn，返回false</span></span><br><span class="line">		<span class="keyword">if</span> (!fns) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span> (!fn) &#123;</span><br><span class="line">			<span class="comment">// 如果没有传 fn 的话，就会将 event 值对应缓存列表中的 fn 都清空</span></span><br><span class="line">			fns &amp;&amp; (fns.length = <span class="number">0</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// 若有 fn，遍历缓存列表，看看传入的 fn 与哪个函数相同</span></span><br><span class="line">			<span class="keyword">let</span> cb;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, cbLen = fns.length; i &lt; cbLen; i++) &#123;</span><br><span class="line">				cb = fns[i];</span><br><span class="line">				<span class="comment">// 如果相同就直接从缓存列表中删掉即可</span></span><br><span class="line">				<span class="keyword">if</span> (cb === fn || cb.fn === fn) &#123;</span><br><span class="line">					fns.splice(i, <span class="number">1</span>);</span><br><span class="line">					<span class="built_in">console</span>.log(fn.name, <span class="string">'取消订阅'</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> _this;</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 发布</span></span><br><span class="line">	emit() &#123;</span><br><span class="line">		<span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">		<span class="comment">// 第一个参数是对应的 event 值，直接用数组的 shift 方法取出</span></span><br><span class="line">		<span class="comment">// let event = Array.prototype.shift.call(arguments);</span></span><br><span class="line">		<span class="keyword">let</span> event = [].shift.call(<span class="built_in">arguments</span>); <span class="comment">// 同上</span></span><br><span class="line">		<span class="keyword">let</span> fns = _this.list[event];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 如果缓存列表里没有 fn 就返回 false</span></span><br><span class="line">		<span class="keyword">if</span> (!fns || fns.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 遍历 event 值对应的缓存列表，依次执行 fn</span></span><br><span class="line">		fns.forEach(<span class="function"><span class="params">fn</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="comment">// fn:用户  _this:作者   arguments:发布的文章</span></span><br><span class="line">			fn.apply(_this, <span class="built_in">arguments</span>);</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">return</span> _this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">user1</span>(<span class="params">content</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'user1：订阅的更新文章内容:'</span>, content);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">user2</span>(<span class="params">content</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'user2：的更新文章内容:'</span>, content);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">user3</span>(<span class="params">content</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'user3：的更新文章内容:'</span>, content);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">user4</span>(<span class="params">content</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'user4：临时订阅的更新文章内容:'</span>, content);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">user5</span>(<span class="params">content</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'user5：的更新文章内容:'</span>, content);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'\n订阅：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-'</span>);</span><br><span class="line"><span class="comment">// 订阅多次Javascript_article1标签的文章</span></span><br><span class="line">eventEmitter.on(<span class="string">'Javascript_article1'</span>, user1);</span><br><span class="line">eventEmitter.on(<span class="string">'Javascript_article1'</span>, user2);</span><br><span class="line">eventEmitter.on(<span class="string">'Javascript_article1'</span>, user3);</span><br><span class="line"><span class="comment">// 发布</span></span><br><span class="line">eventEmitter.emit(<span class="string">'Javascript_article1'</span>, <span class="string">'Javascript 发布-订阅模式'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'\n取消订阅：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-'</span>);</span><br><span class="line"><span class="comment">// 取消user2方法的Javascript_article1订阅</span></span><br><span class="line">eventEmitter.off(<span class="string">'Javascript_article1'</span>, user2);</span><br><span class="line"><span class="comment">// 发布</span></span><br><span class="line">eventEmitter.emit(<span class="string">'Javascript_article1'</span>, <span class="string">'Javascript 发布-订阅模式'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'\n临时订阅：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-'</span>);</span><br><span class="line"><span class="comment">// 订阅一次article2标签的文章</span></span><br><span class="line">eventEmitter.once(<span class="string">'article2'</span>, user4);</span><br><span class="line"><span class="comment">// 发布</span></span><br><span class="line">eventEmitter.emit(<span class="string">'article2'</span>, <span class="string">'Javascript 观察者模式'</span>);</span><br><span class="line">eventEmitter.emit(<span class="string">'article2'</span>, <span class="string">'Javascript 观察者模式'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'\n嵌套订阅和发布：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-'</span>);</span><br><span class="line"><span class="comment">// user3用户订阅成功后，默认推送一篇文章【如果之前订阅后，提示两个消息】</span></span><br><span class="line">eventEmitter.on(<span class="string">'test111'</span>, user5).emit(<span class="string">'test111'</span>, <span class="string">'test111'</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="输出结果："><a href="#输出结果：" class="headerlink" title="输出结果："></a>输出结果：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">订阅：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-</span><br><span class="line">user1 订阅</span><br><span class="line">user2 订阅</span><br><span class="line">user3 订阅</span><br><span class="line">user1：订阅的更新文章内容: Javascript 发布-订阅模式</span><br><span class="line">user2：的更新文章内容: Javascript 发布-订阅模式</span><br><span class="line">user3：的更新文章内容: Javascript 发布-订阅模式</span><br><span class="line"></span><br><span class="line">取消订阅：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-</span><br><span class="line">user2 取消订阅</span><br><span class="line">user1：订阅的更新文章内容: Javascript 发布-订阅模式</span><br><span class="line">user3：的更新文章内容: Javascript 发布-订阅模式</span><br><span class="line"></span><br><span class="line">临时订阅：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-</span><br><span class="line">on_tmp 订阅</span><br><span class="line">user4 订阅一次</span><br><span class="line">user4：临时订阅的更新文章内容: Javascript 观察者模式</span><br><span class="line">on_tmp 取消订阅</span><br><span class="line"></span><br><span class="line">嵌套订阅和发布：-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-</span><br><span class="line">user5 订阅</span><br><span class="line">user5：的更新文章内容: test111</span><br></pre></td></tr></table></figure>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="Java-工厂模式" href="/2020/04/07/Java-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+            ← Java-工厂模式
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="CSS-200404全国哀悼日，一段css让全站变灰" href="/2020/04/04/CSS-200404%E5%85%A8%E5%9B%BD%E5%93%80%E6%82%BC%E6%97%A5%EF%BC%8C%E4%B8%80%E6%AE%B5css%E8%AE%A9%E5%85%A8%E7%AB%99%E5%8F%98%E7%81%B0/">
+            CSS-200404全国哀悼日，一段css让全站变灰 →
+        </a>
+        
+    </nav>
+
+    
+</div>
+
+
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card"  style="background-image: url(https://i.loli.net/2017/11/26/5a19c56faa29f.jpg)"  >
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; 迷心兔 &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2020/04/07/Java-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">Java-抽象工厂模式</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/04/07/Java-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">Java-工厂模式</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/04/07/JS-%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/">JS-发布订阅模式</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+
+            
+            
+            
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="迷心兔">迷心兔 &copy; 2020</a>
+			
+				
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+
+        
+        
+
+        
+        
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
