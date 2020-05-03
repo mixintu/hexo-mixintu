@@ -166,6 +166,14 @@
 
 
 <h2 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">开始播放MP3音频格式【视频名称：beyond the horizon.mp3】</span><br><span class="line">开始播放MP4视频格式【视频名称：alone.mp4】</span><br><span class="line">开始播放Vlc视频格式【视频名称:far far away.vlc】</span><br><span class="line">无效的媒体：暂不支持该媒体类型【avi】</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">RowingBoat</span>/*划艇*/ </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">row</span><span class="params">()</span></span>;<span class="comment">// 手动划船操作</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Captain</span>/*划艇船长*/ <span class="keyword">implements</span> <span class="title">RowingBoat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> RowingBoat rowingBoat;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Captain</span><span class="params">(RowingBoat rowingBoat)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.rowingBoat = rowingBoat;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span> <span class="comment">// 划艇船长的操作技能</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">row</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        rowingBoat.row();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FishingBoat</span>/*渔船*/ </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sail</span><span class="params">()</span> </span>&#123;<span class="comment">// 方向盘操作</span></span><br><span class="line">        System.out.println(<span class="string">"划艇船长：驾驶渔船正在航行..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FishingBoatAdapter</span> <span class="keyword">implements</span> <span class="title">RowingBoat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> FishingBoat boat;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FishingBoatAdapter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        boat = <span class="keyword">new</span> FishingBoat();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span> <span class="comment">// 划艇船长学会了渔船的操作技能</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">row</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"划艇船长：正在启动渔船..."</span>);</span><br><span class="line">        boat.sail();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Captain captain = <span class="keyword">new</span> Captain(<span class="keyword">new</span> FishingBoatAdapter());</span><br><span class="line">        captain.row();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="输出结果-1"><a href="#输出结果-1" class="headerlink" title="输出结果"></a>输出结果</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">划艇船长：正在启动渔船...</span><br><span class="line">划艇船长：驾驶渔船正在航行...</span><br></pre></td></tr></table></figure>
                 </article>
                 <ul class="tags-postTags">
                     
@@ -176,6 +184,10 @@
 
     
     <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="Java-桥接模式" href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">
+            ← Java-桥接模式
+        </a>
         
         <span class="prev-next-post">·</span>
         
@@ -202,7 +214,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#输出结果"><span class="toc-text">输出结果</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#输出结果"><span class="toc-text">输出结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出结果-1"><span class="toc-text">输出结果</span></a></li></ol>
     </div>
 </div>
 
@@ -237,6 +249,12 @@
       
       
       <li>
+        <a href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">Java-桥接模式</a>
+      </li>
+      
+      
+      
+      <li>
         <a href="/2020/04/27/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F3/">Java-适配器模式3</a>
       </li>
       
@@ -247,10 +265,6 @@
       </li>
       
       
-      
-      <li>
-        <a href="/2020/04/18/tmp/">tmp</a>
-      </li>
       
       
       
