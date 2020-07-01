@@ -1,159 +1,98 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
-
-
-
-
-
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="preconnect" href="//www.googletagmanager.com">
-	<link rel="preconnect" href="//zz.bdstatic.com">
-	<link rel="preconnect" href="//sp0.baidu.com">
-	<link rel="preconnect" href="//www.google-analytics.com">
-	<link rel="preconnect" href="//cdn1.lncld.net">
-	<link rel="preconnect" href="//unpkg.com">
-	<link rel="preconnect" href="//app-router.leancloud.cn">
-	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
-	<link rel="preconnect" href="//gravatar.loli.net">
+  <meta charset="utf-8">
+  
 
-	<title>JS验证插件 | 迷心兔</title>
+  
+  <title>JS验证插件 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="123456789101112131415161718默认校验规则的属性值：	required: &quot;这是必填字段&quot;,    remote: &quot;请修正此字段&quot;,    email: &quot;请输入有效的电子邮件地址&quot;,    url: &quot;请输入有效的网址&quot;,    date: &quot;请输入有效的日期&quot;,    dateISO: &quot;请输入有效的日期 (YYYY-MM-DD)&quot;,    number: &quot;请输入有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS验证插件">
+<meta property="og:url" content="http://yoursite.com/2020/01/17/JS%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="123456789101112131415161718默认校验规则的属性值：	required: &quot;这是必填字段&quot;,    remote: &quot;请修正此字段&quot;,    email: &quot;请输入有效的电子邮件地址&quot;,    url: &quot;请输入有效的网址&quot;,    date: &quot;请输入有效的日期&quot;,    dateISO: &quot;请输入有效的日期 (YYYY-MM-DD)&quot;,    number: &quot;请输入有">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-01-17T05:30:58.131Z">
+<meta property="article:modified_time" content="2020-04-23T08:35:58.745Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-	<meta name="HandheldFriendly" content="True">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-	<meta name="generator" content="hexo">
-	<meta name="author" content="迷心兔">
-	<meta name="description" content>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
-	
-	<meta name="keywords" content>
-	
-
-	
-	<link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
-	<link rel="apple-touch-icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
-	
-
-	
-	<meta name="theme-color" content="#3c484e">
-	<meta name="msapplication-TileColor" content="#3c484e">
-	
-
-	
-
-	
-
-	<meta property="og:site_name" content="迷心兔">
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="JS验证插件 | 迷心兔">
-	<meta property="og:description" content>
-	<meta property="og:url" content="https://mixintu.github.io/2020/01/17/JS%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/">
-
-	
-	<meta property="article:published_time" content="2020-01-17T13:01:13+08:00"> 
-	<meta property="article:author" content="迷心兔">
-	<meta property="article:published_first" content="迷心兔, /2020/01/17/JS%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/">
-	
-
-	
-	
-	
-<link rel="stylesheet" href="/css/allinonecss.min.css">
-
-
-	
-	
-	
-</head>
-<body class="post-template">
-	<div class="site-wrapper">
-		
-
-
-
-
-<header class="site-header post-site-header outer">
-    <div class="inner">
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
         
-<nav class="site-nav"> 
-    <div class="site-nav-left">
-        <ul class="nav">
-            <li>
-                
-                <a href="/" title="Home">HOME</a>
-                
-            </li>
-            
-            
-            <li>
-                <a href="/archives" title="Archives">Archives</a>
-            </li>
-            
-            
-        </ul> 
-    </div>
-    
-    <div class="search-button-area">
-        <a href="#search" class="search-button">Search ...</a>
-    </div>
-     
-    <div class="site-nav-right">
+          <a class="main-nav-link" href="/">Home</a>
         
-        <a href="#search" class="search-button">Search ...</a>
-         
+          <a class="main-nav-link" href="/archives">Archives</a>
         
-<div class="social-links">
-    
-    
-    
-    <a class="social-link" title="facebook" href="https://www.facebook.com" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
-
-    </a>
-    
-    
-    <a class="social-link" title="twitter" href="https://www.twitter.com" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
-
-    </a>
-    
-    
-    
-    
-</div>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
     </div>
-</nav>
-    </div>
+  </div>
 </header>
+      <div class="outer">
+        <section id="main"><article id="post-JS验证插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/17/JS%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/" class="article-date">
+  <time datetime="2020-01-17T05:30:58.131Z" itemprop="datePublished">2020-01-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
 
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS验证插件
+    </h1>
+  
 
-<div id="site-main" class="site-main outer" role="main">
-    <div class="inner">
-        <header class="post-full-header">
-            <div class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2020-01-17T05:30:58.131Z">
-                    2020-01-17
-                </time>
-                
-                <span class="date-divider">/</span>
-                
-                <a href="/categories/JavaScript/">JavaScript</a>&nbsp;&nbsp;
-                
-                
-            </div>
-            <h1 class="post-full-title">JS验证插件</h1>
-        </header>
-        <div class="post-full ">
-            
-            <figure class="post-full-image" style="background-image: url(/../img/这就是铁甲壁纸的郑爽2.jpg)">
-            </figure>
-            
-            <div class="post-full-content">
-                <article id="photoswipe" class="markdown-body">
-                    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">默认校验规则的属性值：</span><br><span class="line">	required: <span class="string">"这是必填字段"</span>,</span><br><span class="line">    remote: <span class="string">"请修正此字段"</span>,</span><br><span class="line">    email: <span class="string">"请输入有效的电子邮件地址"</span>,</span><br><span class="line">    url: <span class="string">"请输入有效的网址"</span>,</span><br><span class="line">    date: <span class="string">"请输入有效的日期"</span>,</span><br><span class="line">    dateISO: <span class="string">"请输入有效的日期 (YYYY-MM-DD)"</span>,</span><br><span class="line">    number: <span class="string">"请输入有效的数字"</span>,</span><br><span class="line">    digits: <span class="string">"只能输入数字"</span>,</span><br><span class="line">    creditcard: <span class="string">"请输入有效的信用卡号码"</span>,</span><br><span class="line">    equalTo: <span class="string">"你的输入不相同"</span>,</span><br><span class="line">    extension: <span class="string">"请输入有效的后缀"</span>,</span><br><span class="line">    maxlength: $.validator.format(<span class="string">"最多可以输入 &#123;0&#125; 个字符"</span>),</span><br><span class="line">    minlength: $.validator.format(<span class="string">"最少要输入 &#123;0&#125; 个字符"</span>),</span><br><span class="line">    rangelength: $.validator.format(<span class="string">"请输入长度在 &#123;0&#125; 到 &#123;1&#125; 之间的字符串"</span>),</span><br><span class="line">    range: $.validator.format(<span class="string">"请输入范围在 &#123;0&#125; 到 &#123;1&#125; 之间的数值"</span>),</span><br><span class="line">    max: $.validator.format(<span class="string">"请输入不大于 &#123;0&#125; 的数值"</span>),</span><br><span class="line">    min: $.validator.format(<span class="string">"请输入不小于 &#123;0&#125; 的数值"</span>)</span><br></pre></td></tr></table></figure>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">默认校验规则的属性值：</span><br><span class="line">	required: <span class="string">"这是必填字段"</span>,</span><br><span class="line">    remote: <span class="string">"请修正此字段"</span>,</span><br><span class="line">    email: <span class="string">"请输入有效的电子邮件地址"</span>,</span><br><span class="line">    url: <span class="string">"请输入有效的网址"</span>,</span><br><span class="line">    date: <span class="string">"请输入有效的日期"</span>,</span><br><span class="line">    dateISO: <span class="string">"请输入有效的日期 (YYYY-MM-DD)"</span>,</span><br><span class="line">    number: <span class="string">"请输入有效的数字"</span>,</span><br><span class="line">    digits: <span class="string">"只能输入数字"</span>,</span><br><span class="line">    creditcard: <span class="string">"请输入有效的信用卡号码"</span>,</span><br><span class="line">    equalTo: <span class="string">"你的输入不相同"</span>,</span><br><span class="line">    extension: <span class="string">"请输入有效的后缀"</span>,</span><br><span class="line">    maxlength: $.validator.format(<span class="string">"最多可以输入 &#123;0&#125; 个字符"</span>),</span><br><span class="line">    minlength: $.validator.format(<span class="string">"最少要输入 &#123;0&#125; 个字符"</span>),</span><br><span class="line">    rangelength: $.validator.format(<span class="string">"请输入长度在 &#123;0&#125; 到 &#123;1&#125; 之间的字符串"</span>),</span><br><span class="line">    range: $.validator.format(<span class="string">"请输入范围在 &#123;0&#125; 到 &#123;1&#125; 之间的数值"</span>),</span><br><span class="line">    max: $.validator.format(<span class="string">"请输入不大于 &#123;0&#125; 的数值"</span>),</span><br><span class="line">    min: $.validator.format(<span class="string">"请输入不小于 &#123;0&#125; 的数值"</span>)</span><br></pre></td></tr></table></figure>
 
 <h1 id="在html的内部标签添加验证属性"><a href="#在html的内部标签添加验证属性" class="headerlink" title="在html的内部标签添加验证属性"></a>在html的内部标签添加验证属性</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="selector-class">.error</span>&#123;</span></span><br><span class="line"><span class="css">				<span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"cmxform"</span> <span class="attr">id</span>=<span class="string">"commentForm"</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">legend</span>&gt;</span>【required:必需, minlength:最小两个字母】<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">legend</span>&gt;</span><span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"cname"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"cname"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">minlength</span>=<span class="string">"2"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"cemail"</span>&gt;</span>E-Mail<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"cemail"</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"curl"</span>&gt;</span>URL<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"curl"</span> <span class="attr">type</span>=<span class="string">"url"</span> <span class="attr">name</span>=<span class="string">"url"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"ccomment"</span>&gt;</span>备注<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"ccomment"</span> <span class="attr">name</span>=<span class="string">"comment"</span> <span class="attr">required</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"submit"</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.validate.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/messages_zh.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		$.validator.setDefaults(&#123;</span></span><br><span class="line"><span class="actionscript">			submitHandler: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"提交事件!"</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"><span class="javascript">		$().ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			$(<span class="string">"#commentForm"</span>).validate();</span></span><br><span class="line">		&#125;);</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -164,350 +103,151 @@
 
 <h1 id="自定义验证器"><a href="#自定义验证器" class="headerlink" title="自定义验证器"></a>自定义验证器</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="selector-class">.error</span>&#123;</span></span><br><span class="line"><span class="css">				<span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.validate.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/messages_zh.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">class</span>=<span class="string">"cmxform"</span> <span class="attr">id</span>=<span class="string">"signupForm"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">legend</span>&gt;</span>登录框<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"user"</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"user"</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"password"</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"dj"</span>&gt;</span>等级<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"dj"</span> <span class="attr">name</span>=<span class="string">"dj"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"submit"</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登陆"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"cancel"</span> <span class="attr">type</span>=<span class="string">"reset"</span> <span class="attr">value</span>=<span class="string">"重置"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">		<span class="comment">// 自定义验证器</span></span></span><br><span class="line"><span class="javascript">		$.validator.addMethod(</span></span><br><span class="line"><span class="actionscript">			<span class="comment">// 1.是添加的验证方法的名字</span></span></span><br><span class="line"><span class="actionscript">			<span class="string">"af"</span>,</span></span><br><span class="line"><span class="actionscript">			<span class="comment">// 2.验证方法</span></span></span><br><span class="line"><span class="actionscript">			<span class="function"><span class="keyword">function</span><span class="params">(value, element, params)</span> </span>&#123;</span></span><br><span class="line">				/*</span><br><span class="line">				@value:输入的等级</span><br><span class="line">				@element:默认错误的label标签</span><br><span class="line"><span class="actionscript">				@params:定义的参数列表 --&gt; [<span class="string">"a"</span>, <span class="string">"f"</span>]</span></span><br><span class="line">				*/</span><br><span class="line">				if (value.length &gt; 1) &#123;</span><br><span class="line"><span class="actionscript">					<span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line">				if (value &gt;= params[0] &amp;&amp; value &lt;= params[1]) &#123;</span><br><span class="line"><span class="actionscript">					<span class="keyword">return</span> <span class="literal">true</span>;</span></span><br><span class="line"><span class="actionscript">				&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,</span><br><span class="line"><span class="actionscript">			<span class="comment">// 3.自定义的错误提示</span></span></span><br><span class="line"><span class="actionscript">			<span class="string">"必须是一个字母,且a-f"</span></span></span><br><span class="line">		);</span><br><span class="line"><span class="actionscript">		<span class="comment">// 验证器</span></span></span><br><span class="line"><span class="javascript">		$.validator.setDefaults(&#123;</span></span><br><span class="line"><span class="actionscript">			submitHandler: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"提交事件!"</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"><span class="actionscript">		<span class="comment">// jQuery 入口函数:</span></span></span><br><span class="line"><span class="javascript">		$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="comment">// 提交时验证表单</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> validator = $(<span class="string">"#signupForm"</span>).validate(&#123;</span></span><br><span class="line"><span class="actionscript">				<span class="comment">// 验证规则</span></span></span><br><span class="line">				rules: &#123;</span><br><span class="line">					user: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="literal">true</span>,</span></span><br><span class="line">						minlength: 3,</span><br><span class="line">					&#125;,</span><br><span class="line">					password: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="literal">true</span>,</span></span><br><span class="line">						minlength: 5,</span><br><span class="line">						maxlength: 12,</span><br><span class="line">					&#125;,</span><br><span class="line">					dj: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">						af: [<span class="string">"a"</span>, <span class="string">"f"</span>],</span></span><br><span class="line">					&#125;,</span><br><span class="line">				&#125;,</span><br><span class="line"><span class="actionscript">				<span class="comment">// 友情提示消息</span></span></span><br><span class="line">				messages: &#123;</span><br><span class="line">					user: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="string">" (必需字段)"</span>,</span></span><br><span class="line"><span class="actionscript">						minlength: <span class="string">" (不能少于 3 个字母)"</span></span></span><br><span class="line">					&#125;,</span><br><span class="line">					password: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="string">" (必需字段)"</span>,</span></span><br><span class="line"><span class="actionscript">						minlength: <span class="string">" (字母不能少于 5 个且不能大于 12 个)"</span>,</span></span><br><span class="line"><span class="actionscript">						maxlength: <span class="string">" (字母不能少于 5 个且不能大于 12 个)"</span></span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;);</span><br><span class="line"><span class="actionscript">			<span class="comment">// 重置按钮</span></span></span><br><span class="line"><span class="javascript">			$(<span class="string">".cancel"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line">				validator.resetForm();</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="一个完整的验证实例"><a href="#一个完整的验证实例" class="headerlink" title="一个完整的验证实例"></a>一个完整的验证实例</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>在RTM小组的友好许可下，记住Milk的注册表单-jQuery Validate插件演示-<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- #signupform属性的表单样式表 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://static.runoob.com/assets/jquery-validation-1.14.0/demo/milk/milk.css"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 这里使用1.14版本 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.mockjax.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.validate.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/messages_zh.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"headerlogo"</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/try/jquery/plugins/images/milk.png"</span> <span class="attr">alt</span>=<span class="string">"Remember The Milk"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear: both;"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"signupbox"</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"signuptab"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"signupcurrent"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">" "</span>&gt;</span>注册界面<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"signupwrap"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"signupform"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"lfirstname"</span> <span class="attr">for</span>=<span class="string">"firstname"</span>&gt;</span>您的名字<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"firstname"</span> <span class="attr">name</span>=<span class="string">"firstname"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">maxlength</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"status"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"llastname"</span> <span class="attr">for</span>=<span class="string">"lastname"</span>&gt;</span>您的姓氏<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"lastname"</span> <span class="attr">name</span>=<span class="string">"lastname"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">maxlength</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"status"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"lusername"</span> <span class="attr">for</span>=<span class="string">"username"</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">maxlength</span>=<span class="string">"50"</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"status"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"lpassword"</span> <span class="attr">for</span>=<span class="string">"password"</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"status"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"lpassword_confirm"</span> <span class="attr">for</span>=<span class="string">"password_confirm"</span>&gt;</span>确认密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"password_confirm"</span> <span class="attr">name</span>=<span class="string">"password_confirm"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">maxlength</span>=<span class="string">"50"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"status"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"lemail"</span> <span class="attr">for</span>=<span class="string">"email"</span>&gt;</span>电子邮件地址<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">maxlength</span>=<span class="string">"150"</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"status"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span>&gt;</span>选择您喜欢的日期格式<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">style</span>=<span class="string">"vertical-align: top; padding-top: 2px;"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">														<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"padding-right: 5px;"</span>&gt;</span></span><br><span class="line">															<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"dateformat_eu"</span> <span class="attr">name</span>=<span class="string">"dateformat"</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">															<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"ldateformat_eu"</span> <span class="attr">for</span>=<span class="string">"dateformat_eu"</span>&gt;</span>14/02/07<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">														<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">														<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"padding-left: 5px;"</span>&gt;</span></span><br><span class="line">															<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"dateformat_am"</span> <span class="attr">name</span>=<span class="string">"dateformat"</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">															<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"ldateformat_am"</span> <span class="attr">for</span>=<span class="string">"dateformat_am"</span>&gt;</span>02/14/07<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">														<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">														<span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">															<span class="comment">&lt;!-- 存放错误信息 --&gt;</span></span><br><span class="line">														<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span>&amp;nbsp;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"termswrap"</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"terms"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"terms"</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"lterms"</span> <span class="attr">for</span>=<span class="string">"terms"</span>&gt;</span>我已阅读并接受使用条款.<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">											<span class="comment">&lt;!-- /termswrap --&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"label"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"lsignupsubmit"</span> <span class="attr">for</span>=<span class="string">"signupsubmit"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"field"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"signupsubmit"</span> <span class="attr">name</span>=<span class="string">"signup"</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"cancel"</span> <span class="attr">type</span>=<span class="string">"reset"</span> <span class="attr">value</span>=<span class="string">"重置"</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			$.mockjax(&#123;</span></span><br><span class="line"><span class="actionscript">				url: <span class="string">"emails.action"</span>, <span class="comment">//动作衔接</span></span></span><br><span class="line"><span class="actionscript">				response: <span class="function"><span class="keyword">function</span><span class="params">(settings)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">					<span class="comment">// 获取规则的邮件字段</span></span></span><br><span class="line"><span class="actionscript">					<span class="keyword">var</span> email = settings.data.email</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">var</span> emails = [</span></span><br><span class="line"><span class="actionscript">						<span class="string">"glen@marketo.com"</span>,</span></span><br><span class="line"><span class="actionscript">						<span class="string">"george@bush.gov"</span>,</span></span><br><span class="line"><span class="actionscript">						<span class="string">"me@god.com"</span>,</span></span><br><span class="line"><span class="actionscript">						<span class="string">"aboutface@cooper.com"</span>,</span></span><br><span class="line"><span class="actionscript">						<span class="string">"steam@valve.com"</span>,</span></span><br><span class="line"><span class="actionscript">						<span class="string">"bill@gates.com"</span></span></span><br><span class="line">					];</span><br><span class="line"><span class="actionscript">					<span class="keyword">this</span>.responseText = <span class="string">"true"</span>;</span></span><br><span class="line"><span class="javascript">					<span class="keyword">if</span> ($.inArray(email, emails) !== <span class="number">-1</span>) &#123;</span></span><br><span class="line"><span class="actionscript">						<span class="keyword">this</span>.responseText = <span class="string">"false"</span>;</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				responseTime: 500</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line"><span class="javascript">			$.mockjax(&#123;</span></span><br><span class="line"><span class="actionscript">				url: <span class="string">"users.action"</span>, <span class="comment">//动作衔接</span></span></span><br><span class="line"><span class="actionscript">				response: <span class="function"><span class="keyword">function</span><span class="params">(settings)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">					<span class="comment">// 获取规则的用户名字段</span></span></span><br><span class="line"><span class="actionscript">					<span class="keyword">var</span> user = settings.data.username</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">var</span> users = [<span class="string">"asdf"</span>, <span class="string">"Peter"</span>, <span class="string">"Peter2"</span>, <span class="string">"George"</span>];</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">this</span>.responseText = <span class="string">"true"</span>;</span></span><br><span class="line"><span class="javascript">					<span class="keyword">if</span> ($.inArray(user, users) !== <span class="number">-1</span>) &#123;</span></span><br><span class="line"><span class="actionscript">						<span class="keyword">this</span>.responseText = <span class="string">"false"</span>;</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				responseTime: 500</span><br><span class="line">			&#125;);</span><br><span class="line"><span class="actionscript">			<span class="comment">// 验证器</span></span></span><br><span class="line"><span class="javascript">			$.validator.setDefaults(&#123;</span></span><br><span class="line"><span class="actionscript">				<span class="comment">// debug: true, //为true:那么表单不会提交只进行检查，调试时十分方便</span></span></span><br><span class="line"><span class="actionscript">				submitHandler: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; <span class="comment">//提交验证</span></span></span><br><span class="line"><span class="actionscript">					alert(<span class="string">"提交事件!"</span>);</span></span><br><span class="line"><span class="actionscript">					<span class="comment">// form.submit(); //提交表单</span></span></span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;);</span><br><span class="line"><span class="actionscript">			<span class="comment">// 在keyup上验证注册表单并提交</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> validator = $(<span class="string">"#signupform"</span>).validate(&#123;</span></span><br><span class="line"><span class="actionscript">				<span class="comment">// 验证规则</span></span></span><br><span class="line">				rules: &#123;</span><br><span class="line"><span class="actionscript">					firstname: <span class="string">"required"</span>,</span></span><br><span class="line"><span class="actionscript">					lastname: <span class="string">"required"</span>,</span></span><br><span class="line">					username: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="literal">true</span>,</span></span><br><span class="line">						minlength: 2,</span><br><span class="line"><span class="actionscript">						remote: <span class="string">"users.action"</span> <span class="comment">//mockjax验证动作</span></span></span><br><span class="line">					&#125;,</span><br><span class="line"><span class="actionscript">					password: &#123; <span class="comment">//密码</span></span></span><br><span class="line"><span class="actionscript">						required: <span class="literal">true</span>,</span></span><br><span class="line">						minlength: 5</span><br><span class="line">					&#125;,</span><br><span class="line"><span class="actionscript">					password_confirm: &#123; <span class="comment">//重复密码比较</span></span></span><br><span class="line"><span class="actionscript">						required: <span class="literal">true</span>,</span></span><br><span class="line">						minlength: 5,</span><br><span class="line"><span class="actionscript">						equalTo: <span class="string">"#password"</span></span></span><br><span class="line">					&#125;,</span><br><span class="line">					email: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">						email: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">						remote: <span class="string">"emails.action"</span> <span class="comment">//mockjax验证动作</span></span></span><br><span class="line">					&#125;,</span><br><span class="line"><span class="actionscript">					dateformat: <span class="string">"required"</span>,</span></span><br><span class="line"><span class="actionscript">					terms: <span class="string">"required"</span></span></span><br><span class="line">				&#125;,</span><br><span class="line"><span class="actionscript">				<span class="comment">// 友情提示消息</span></span></span><br><span class="line">				messages: &#123;</span><br><span class="line"><span class="actionscript">					firstname: <span class="string">"输入您的名字"</span>,</span></span><br><span class="line"><span class="actionscript">					lastname: <span class="string">"输入您的姓氏"</span>,</span></span><br><span class="line">					username: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="string">"输入用户名"</span>,</span></span><br><span class="line"><span class="actionscript">						minlength: jQuery.validator.format(<span class="string">"输入至少&#123;0&#125;个字符"</span>),</span></span><br><span class="line"><span class="actionscript">						remote: jQuery.validator.format(<span class="string">"&#123;0&#125;已被使用"</span>)</span></span><br><span class="line">					&#125;,</span><br><span class="line">					password: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="string">"输入密码"</span>,</span></span><br><span class="line"><span class="actionscript">						minlength: jQuery.validator.format(<span class="string">"输入至少&#123;0&#125;个字符"</span>)</span></span><br><span class="line">					&#125;,</span><br><span class="line">					password_confirm: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="string">"再次输入密码"</span>,</span></span><br><span class="line"><span class="actionscript">						minlength: jQuery.validator.format(<span class="string">"输入至少&#123;0&#125;个字符"</span>),</span></span><br><span class="line"><span class="actionscript">						equalTo: <span class="string">"输入与上述相同的密码"</span></span></span><br><span class="line">					&#125;,</span><br><span class="line">					email: &#123;</span><br><span class="line"><span class="actionscript">						required: <span class="string">"请输入有效的电子邮件地址"</span>,</span></span><br><span class="line"><span class="actionscript">						minlength: <span class="string">""</span>, <span class="comment">//交给remote验证</span></span></span><br><span class="line"><span class="actionscript">						remote: jQuery.validator.format(<span class="string">"&#123;0&#125;已被使用"</span>)</span></span><br><span class="line">					&#125;,</span><br><span class="line"><span class="actionscript">					dateformat: <span class="string">"选择您喜欢的日期格式"</span>,</span></span><br><span class="line"><span class="actionscript">					terms: <span class="string">" "</span></span></span><br><span class="line">				&#125;,</span><br><span class="line"><span class="actionscript">				<span class="comment">// （错误元素标签）的放置位置</span></span></span><br><span class="line"><span class="actionscript">				errorPlacement: <span class="function"><span class="keyword">function</span><span class="params">(error, element)</span> </span>&#123;</span></span><br><span class="line">					/*</span><br><span class="line">					@error:要提示的错误信息</span><br><span class="line">					@element:验证的元素标签</span><br><span class="line">					*/</span><br><span class="line"><span class="actionscript">					<span class="keyword">if</span> (element.is(<span class="string">":radio"</span>))</span></span><br><span class="line"><span class="actionscript">						<span class="comment">// 存放在相同父级的第三个td标签里面</span></span></span><br><span class="line">						error.appendTo(element.parent().next().next());</span><br><span class="line"><span class="actionscript">					<span class="keyword">else</span> <span class="keyword">if</span> (element.is(<span class="string">":checkbox"</span>))</span></span><br><span class="line"><span class="actionscript">						<span class="comment">// 存放在下一个label标签里面</span></span></span><br><span class="line">						error.appendTo(element.next());</span><br><span class="line"><span class="actionscript">					<span class="keyword">else</span></span></span><br><span class="line"><span class="actionscript">						<span class="comment">// 存放在同父级的下一个标签里卖弄</span></span></span><br><span class="line">						error.appendTo(element.parent().next());</span><br><span class="line">				&#125;,</span><br><span class="line"><span class="actionscript">				<span class="comment">// 将此类设置为错误标签以指示有效字段</span></span></span><br><span class="line"><span class="actionscript">				success: <span class="function"><span class="keyword">function</span><span class="params">(label)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">					<span class="comment">// 在lael标签内添加空格和 class=checked属性</span></span></span><br><span class="line"><span class="actionscript">					label.html(<span class="string">"&amp;nbsp;"</span>).addClass(<span class="string">"checked"</span>);</span></span><br><span class="line">				&#125;,</span><br><span class="line"><span class="actionscript">				<span class="comment">// 可以给未通过验证的元素加效果、闪烁等。</span></span></span><br><span class="line"><span class="actionscript">				highlight: <span class="function"><span class="keyword">function</span><span class="params">(element, errorClass)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">					<span class="comment">// milk.css：添加样式效果</span></span></span><br><span class="line"><span class="javascript">					$(element).parent().next().find(<span class="string">"."</span> + errorClass).removeClass(<span class="string">"checked"</span>);</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line"><span class="actionscript">			<span class="comment">// 通过组合姓氏和名字来建议用户名（把姓名和名字整合为用户名）</span></span></span><br><span class="line"><span class="javascript">			$(<span class="string">"#username"</span>).focus(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> firstname = $(<span class="string">"#firstname"</span>).val();</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> lastname = $(<span class="string">"#lastname"</span>).val();</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">if</span> (firstname &amp;&amp; lastname &amp;&amp; !<span class="keyword">this</span>.value) &#123;</span></span><br><span class="line"><span class="actionscript">					<span class="comment">// toLowerCase：把字符串转换为小写</span></span></span><br><span class="line"><span class="actionscript">					<span class="keyword">this</span>.value = (firstname + <span class="string">"."</span> + lastname).toLowerCase();</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line"><span class="actionscript">			<span class="comment">// 重置按钮</span></span></span><br><span class="line"><span class="javascript">			$(<span class="string">".cancel"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line">				validator.resetForm();</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-                </article>
-                <ul class="tags-postTags">
-                    
-                </ul>
-            </div>
-        </div>
+      
     </div>
-
-    
-    <nav id="gobottom" class="pagination">
-        
-        <a class="prev-post" title="jQuery 常用方法手册大全/jQuery事件参考" href="/2020/01/23/jQuery%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%89%8B%E5%86%8C%E5%A4%A7%E5%85%A8/jQuery%E4%BA%8B%E4%BB%B6%E5%8F%82%E8%80%83/">
-            ← jQuery 常用方法手册大全/jQuery事件参考
-        </a>
-        
-        <span class="prev-next-post">·</span>
-        
-        <a class="next-post" title="JS霓虹灯文字高亮特效" href="/2020/01/14/JS%E9%9C%93%E8%99%B9%E7%81%AF%E6%96%87%E5%AD%97%E9%AB%98%E4%BA%AE%E7%89%B9%E6%95%88/">
-            JS霓虹灯文字高亮特效 →
-        </a>
-        
-    </nav>
-
-    
-</div>
-
-<div class="toc-bar">
-    <div class="toc-btn-bar">
-        <a href="#site-main" class="toc-btn">
-            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
-        </a>
-        <div class="toc-btn toc-switch">
-            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
-            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
-        </div>
-        <a href="#gobottom" class="toc-btn">
-            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
-        </a>
-    </div>
-    <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在html的内部标签添加验证属性"><span class="toc-text">在html的内部标签添加验证属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在jQuery定义Validate插件规则"><span class="toc-text">在jQuery定义Validate插件规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在每个输入框提示错误信息"><span class="toc-text">在每个输入框提示错误信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在jQuery中使用html里自定义的错误模板"><span class="toc-text">在jQuery中使用html里自定义的错误模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义验证器"><span class="toc-text">自定义验证器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一个完整的验证实例"><span class="toc-text">一个完整的验证实例</span></a></li></ol>
-    </div>
-</div>
-
-
-
-
-
-
-	</div>
-	
-
-
-<aside class="read-next outer">
-    <div class="inner">
-        <div class="read-next-feed">
-            
-            
-
-<article class="read-next-card" style="background-image: url(https://i.loli.net/2017/11/26/5a19c56faa29f.jpg)">
-  <header class="read-next-card-header">
-    <small class="read-next-card-header-sitetitle">&mdash; 迷心兔 &mdash;</small>
-    <h3 class="read-next-card-header-title">最新文章</h3>
-  </header>
-  <div class="read-next-divider">
-    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
-    </svg>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/17/JS%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/" data-id="ckc3d8sz5000p7cu9711p3vfy" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-  <div class="read-next-card-content">
-    <ul>
-      
-      
-      
-      <li>
-        <a href="/2020/07/01/15-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%89%88%20oauth2.0%20%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1/">15-前后端分离版 oauth2.0 授权服务</a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/2020/06/24/SpringBoot2.1.3-%E4%BD%BF%E7%94%A8Swagger2%E4%BB%8B%E7%BB%8D/">SpringBoot2.1.3-使用Swagger2介绍</a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/2020/06/08/springboot+vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%97%85%E6%B8%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B-%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E8%BF%87%E7%A8%8B/">springboot+vue前后端分离旅游项目实战教程-用户登陆过程</a>
-      </li>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-    </ul>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/01/23/jQuery%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%89%8B%E5%86%8C%E5%A4%A7%E5%85%A8/jQuery%E4%BA%8B%E4%BB%B6%E5%8F%82%E8%80%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jQuery 常用方法手册大全/jQuery事件参考
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/14/JS%E9%9C%93%E8%99%B9%E7%81%AF%E6%96%87%E5%AD%97%E9%AB%98%E4%BA%AE%E7%89%B9%E6%95%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS霓虹灯文字高亮特效</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li></ul>
+    </div>
   </div>
-  <footer class="read-next-card-footer">
-    <a href="/archives">  MORE  → </a>
-  </footer>
-</article>
 
-            
-            
-            
 
-<article class="read-next-card" style="background-image: url(https://i.loli.net/2017/11/26/5a19c56faa29f.jpg)">
-    <header class="read-next-card-header tagcloud-card">
-        <h3 class="read-next-card-header-title">分类</h3>
-    </header>
-    <div class="read-next-card-content">
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li></ul>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E7%88%AC%E8%99%AB/" rel="tag">Java爬虫</a></li></ul>
     </div>
-</article>
+  </div>
 
 
-            
-            
-            
-
-<article class="read-next-card" style="background-image: url(https://i.loli.net/2017/11/26/5a19c56faa29f.jpg)">
-	<header class="read-next-card-header tagcloud-card">
-		<h3 class="read-next-card-header-title">标签云</h3>
-	</header>
-	<div class="read-next-card-content-ext">
-		<a href="/tags/Java%E7%88%AC%E8%99%AB/" style="font-size: 14px;">Java爬虫</a>
-	</div>
-</article>
-
-            
-        </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java%E7%88%AC%E8%99%AB/" style="font-size: 10px;">Java爬虫</a>
     </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/01/15-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%89%88%20oauth2.0%20%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1/">15-前后端分离版 oauth2.0 授权服务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/24/SpringBoot2.1.3-%E4%BD%BF%E7%94%A8Swagger2%E4%BB%8B%E7%BB%8D/">SpringBoot2.1.3-使用Swagger2介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/springboot+vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%97%85%E6%B8%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B-%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E8%BF%87%E7%A8%8B/">springboot+vue前后端分离旅游项目实战教程-用户登陆过程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">Java-桥接模式</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/27/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F3/">Java-适配器模式3</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
 </aside>
-
-	
-
-
-
-
-<div id="search" class="search-overlay">
-    <div class="search-form">
         
-        <div class="search-overlay-logo">
-        	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://i.loli.net/2017/11/26/5a19c0b50432e.png" alt="迷心兔">
-        </div>
-        
-        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
-        <a class="search-overlay-close" href="#"></a>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-    <div id="local-search-result"></div>
-</div>
-
-<footer class="site-footer outer">
-	<div class="site-footer-content inner">
-		<div class="copyright">
-			<a href="/" title="迷心兔">迷心兔 &copy; 2020</a>
-			
-				
-    		
-		</div>
-		<nav class="site-footer-nav">
-			
-			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
-		</nav>
-	</div>
+  </div>
 </footer>
-	
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-<script>
-    if(window.navigator && navigator.serviceWorker) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-            for(let registration of registrations) {
-                registration.unregister()
-            }
-        })
-    }
-</script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
-
-<script id="scriptLoad" src="/js/allinone.min.js" async></script>
-
-
-<script>
-    document.getElementById('scriptLoad').addEventListener('load', function () {
-        
-        
-            var bLazy = new Blazy();
-        
-
-        
-        
-
-        
-        
-        
-            searchFunc("/");
-        
-        
-    })
-</script>
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
+<script src="/js/script.js"></script>
 
 
 
 
-
-
-<script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+  </div>
+</body>
 </html>
