@@ -1,0 +1,875 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Vue-class与style绑定 | 迷心兔
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「Vue-class与style绑定」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2020/03/12/Vue-class%E4%B8%8Estyle%E7%BB%91%E5%AE%9A/" itemprop="url">
+		Vue-class与style绑定
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2020/03/12/Vue-class%E4%B8%8Estyle%E7%BB%91%E5%AE%9A/" itemprop="url">
+		<time datetime="2020-03-12T09:56:05.676Z" itemprop="dateUpdated">
+	  		2020-04-21
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<h1 id="绑定-HTML-Class—-使用对象语法"><a href="#绑定-HTML-Class—-使用对象语法" class="headerlink" title="绑定 HTML Class—-使用对象语法"></a>绑定 HTML Class—-使用对象语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;迷心兔&lt;&#x2F;title&gt;</span><br><span class="line">		&lt;script src&#x3D;&quot;.&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">		&lt;script&gt;</span><br><span class="line">			Vue.config.productionTip &#x3D; false</span><br><span class="line">		&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;&#x2F;head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;!-- 第一:为class属性添加单个名字 -&gt; 结果：&lt;div class&#x3D;&quot;static active&quot;&gt;&lt;&#x2F;div&gt; --&gt;</span><br><span class="line">		&lt;!-- &lt;div class&#x3D;&quot;static&quot; v-bind:class&#x3D;&quot;&#123; active: isActive &#125;&quot;&gt;&lt;&#x2F;div&gt; --&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 第二:为class属性添加多个名字 -&gt; 结果：&lt;div class&#x3D;&quot;static active&quot;&gt;&lt;&#x2F;div&gt; --&gt;</span><br><span class="line">		&lt;!-- &lt;div class&#x3D;&quot;static&quot; v-bind:class&#x3D;&quot;&#123; active: isActive, &#39;text-danger&#39;: hasError &#125;&quot;&gt;&lt;&#x2F;div&gt; --&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 第二的优化方式 --&gt;</span><br><span class="line">		&lt;div class&#x3D;&quot;static&quot; v-bind:class&#x3D;&quot;classObject&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;script&gt;</span><br><span class="line">			let vm &#x3D; new Vue(&#123;</span><br><span class="line">				el: &#39;div.static&#39;,</span><br><span class="line">				data: &#123;</span><br><span class="line">					&#x2F;&#x2F; isActive: true,</span><br><span class="line">					&#x2F;&#x2F; hasError: false,</span><br><span class="line">					&#x2F;*</span><br><span class="line">					classObject: &#123;</span><br><span class="line">						active: true,</span><br><span class="line">						hasError: false,</span><br><span class="line">						&#39;text-danger&#39;: false</span><br><span class="line">					&#125;,</span><br><span class="line">					*&#x2F;</span><br><span class="line">					isActive: true,</span><br><span class="line">					error: null,</span><br><span class="line">				&#125;,</span><br><span class="line">				&#x2F;&#x2F; 这里对data计算属性再优化一下</span><br><span class="line">				computed: &#123;</span><br><span class="line">					classObject: function() &#123;</span><br><span class="line">						return &#123;</span><br><span class="line">							active: this.isActive &amp;&amp; !this.error,</span><br><span class="line">							&#39;text-danger&#39;: this.error &amp;&amp; this.error.type &#x3D;&#x3D;&#x3D; &#39;fatal&#39;,</span><br><span class="line">						&#125;;</span><br><span class="line">					&#125;,</span><br><span class="line">				&#125;,</span><br><span class="line"></span><br><span class="line">				&#x2F;&#x2F; 初始值</span><br><span class="line">				error: null,</span><br><span class="line">				todos: [],</span><br><span class="line">				visitCount: 0,</span><br><span class="line">				newTodoText: &#39;&#39;,</span><br><span class="line">				hideCompletedTodos: false,</span><br><span class="line"></span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="绑定-HTML-Class—-使用数组语法"><a href="#绑定-HTML-Class—-使用数组语法" class="headerlink" title="绑定 HTML Class—-使用数组语法"></a>绑定 HTML Class—-使用数组语法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>迷心兔<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">			Vue.config.productionTip = <span class="literal">false</span></span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 使用数组方式 -&gt; 结果:&lt;div class="static active text-danger"&gt;&lt;/div&gt; --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- &lt;div class="static" v-bind:class="[activeClass, errorClass]"&gt;&lt;/div&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 使用数组方式 -&gt; 里面可以用三元表达式 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- &lt;div class="static" v-bind:class="[isActive ? activeClass : '', errorClass]"&gt;&lt;/div&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 建议进行优化，把三元表达式语法变成对象语法 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"static"</span> <span class="attr">v-bind:class</span>=<span class="string">"[&#123;active:isActive&#125;,errorClass]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">				el: <span class="string">'div.static'</span>,</span></span><br><span class="line">				/** </span><br><span class="line">				data: &#123;</span><br><span class="line"><span class="actionscript">					activeClass: <span class="string">'active'</span>,</span></span><br><span class="line"><span class="actionscript">					errorClass: <span class="string">'text-danger'</span>,</span></span><br><span class="line">				&#125;,</span><br><span class="line">				*/</span><br><span class="line">			   /** 三元表达式</span><br><span class="line">				data: &#123;</span><br><span class="line"><span class="actionscript">					isActive: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">					activeClass: <span class="string">'active'</span>,</span></span><br><span class="line"><span class="actionscript">					errorClass: <span class="string">'text-danger'</span>,</span></span><br><span class="line">				&#125;,</span><br><span class="line">				*/</span><br><span class="line">				data: &#123;</span><br><span class="line"><span class="actionscript">					isActive: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">					errorClass: <span class="string">'text-danger'</span>,</span></span><br><span class="line">				&#125;,</span><br><span class="line"></span><br><span class="line"><span class="actionscript">				<span class="comment">// 初始值</span></span></span><br><span class="line"><span class="actionscript">				error: <span class="literal">null</span>,</span></span><br><span class="line">				todos: [],</span><br><span class="line">				visitCount: 0,</span><br><span class="line"><span class="actionscript">				newTodoText: <span class="string">''</span>,</span></span><br><span class="line"><span class="actionscript">				hideCompletedTodos: <span class="literal">false</span>,</span></span><br><span class="line"></span><br><span class="line">			&#125;);</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="绑定-HTML-Class—-自定义组件并使用"><a href="#绑定-HTML-Class—-自定义组件并使用" class="headerlink" title="绑定 HTML Class—-自定义组件并使用"></a>绑定 HTML Class—-自定义组件并使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;迷心兔&lt;&#x2F;title&gt;</span><br><span class="line">		&lt;script src&#x3D;&quot;.&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">		&lt;script&gt;</span><br><span class="line">			Vue.config.productionTip &#x3D; false</span><br><span class="line">		&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;&#x2F;head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;!-- 结果：&lt;p class&#x3D;&quot;foo bar baz boo&quot;&gt;Hi&lt;&#x2F;p&gt; --&gt;</span><br><span class="line">		&lt;!-- &lt;my-component class&#x3D;&quot;baz boo&quot;&gt;&lt;&#x2F;my-component&gt; --&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;!-- 结果：&lt;p class&#x3D;&quot;foo bar active&quot;&gt;Hi&lt;&#x2F;p&gt; --&gt;</span><br><span class="line">		&lt;!-- &lt;my-component v-bind:class&#x3D;&quot;&#123; active:isActive &#125;&quot;&gt;&lt;&#x2F;my-component&gt; --&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;script&gt;</span><br><span class="line">			&#x2F;&#x2F; 自己声明一个组件</span><br><span class="line">			Vue.component(&#39;my-component&#39;,&#123;</span><br><span class="line">				template:&#39;&lt;p class&#x3D;&quot;foo bar&quot;&gt;Hi!&lt;&#x2F;p&gt;&#39;,</span><br><span class="line">			&#125;);</span><br><span class="line">			</span><br><span class="line">			let vm &#x3D; new Vue(&#123;</span><br><span class="line">				el:&#39;my-component&#39;,</span><br><span class="line">				data:&#123;</span><br><span class="line">					isActive:true,</span><br><span class="line">				&#125;,</span><br><span class="line"></span><br><span class="line">				&#x2F;&#x2F; 初始值</span><br><span class="line">				error: null,</span><br><span class="line">				todos: [],</span><br><span class="line">				visitCount: 0,</span><br><span class="line">				newTodoText: &#39;&#39;,</span><br><span class="line">				hideCompletedTodos: false,</span><br><span class="line"></span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="绑定内联样式—-使用对象语法"><a href="#绑定内联样式—-使用对象语法" class="headerlink" title="绑定内联样式—-使用对象语法"></a>绑定内联样式—-使用对象语法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>迷心兔<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">			Vue.config.productionTip = <span class="literal">false</span></span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 结果：&lt;div style="color: red; font-size: 30px;"&gt;&lt;/div&gt; --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- &lt;div v-bind:style="&#123; color:activeColor, fontSize:fontSize + 'px'&#125;"&gt;&lt;/div&gt; --&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">&lt;!-- 对上面进行优化：直接使用对象 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"styleObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line"><span class="javascript">			<span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">				el:<span class="string">'div'</span>,</span></span><br><span class="line">				/*</span><br><span class="line">				data:&#123;</span><br><span class="line"><span class="actionscript">					activeColor:<span class="string">'red'</span>,</span></span><br><span class="line">					fontSize:30,</span><br><span class="line">				&#125;,</span><br><span class="line">				*/</span><br><span class="line">			   data:&#123;</span><br><span class="line">				   styleObject:&#123;</span><br><span class="line"><span class="actionscript">					   color:<span class="string">'red'</span>,</span></span><br><span class="line"><span class="actionscript">					   fontSize:<span class="string">'13px'</span>,</span></span><br><span class="line">				   &#125;,</span><br><span class="line">			   &#125;,</span><br><span class="line">				</span><br><span class="line"></span><br><span class="line"><span class="actionscript">				<span class="comment">// 初始值</span></span></span><br><span class="line"><span class="actionscript">				error: <span class="literal">null</span>,</span></span><br><span class="line">				todos: [],</span><br><span class="line">				visitCount: 0,</span><br><span class="line"><span class="actionscript">				newTodoText: <span class="string">''</span>,</span></span><br><span class="line"><span class="actionscript">				hideCompletedTodos: <span class="literal">false</span>,</span></span><br><span class="line"></span><br><span class="line">			&#125;);</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<h1 id="绑定内联样式—-使用数组语法"><a href="#绑定内联样式—-使用数组语法" class="headerlink" title="绑定内联样式—-使用数组语法"></a>绑定内联样式—-使用数组语法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>迷心兔<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">			Vue.config.productionTip = <span class="literal">false</span></span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 结果：&lt;div style="color: green; font-size: 30px; font-weight: bold;"&gt;&lt;/div&gt; --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"[baseStyles, overridingStyles]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line"><span class="javascript">			<span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">				el:<span class="string">'div'</span>,</span></span><br><span class="line">				data:&#123;</span><br><span class="line">					baseStyles: &#123;</span><br><span class="line"><span class="actionscript">						color: <span class="string">'green'</span>,</span></span><br><span class="line"><span class="actionscript">						fontSize: <span class="string">'30px'</span>,</span></span><br><span class="line">					&#125;,</span><br><span class="line">					overridingStyles: &#123;</span><br><span class="line"><span class="actionscript">						<span class="string">'font-weight'</span>: <span class="string">'bold'</span>,</span></span><br><span class="line">					&#125;,</span><br><span class="line">				&#125;,</span><br><span class="line">				</span><br><span class="line"></span><br><span class="line"><span class="actionscript">				<span class="comment">// 初始值</span></span></span><br><span class="line"><span class="actionscript">				error: <span class="literal">null</span>,</span></span><br><span class="line">				todos: [],</span><br><span class="line">				visitCount: 0,</span><br><span class="line"><span class="actionscript">				newTodoText: <span class="string">''</span>,</span></span><br><span class="line"><span class="actionscript">				hideCompletedTodos: <span class="literal">false</span>,</span></span><br><span class="line"></span><br><span class="line">			&#125;);</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="多重值"><a href="#多重值" class="headerlink" title="多重值"></a>多重值</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:style&#x3D;&quot;&#123; display: [&#39;-webkit-box&#39;, &#39;-ms-flexbox&#39;, &#39;flex&#39;] &#125;&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2020/03/12/Vue-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/" title="Vue-列表渲染" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2020/03/12/vue-%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/" title="vue-模板语法" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/18/tmp/" title="tmp">
+								tmp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 18日, 2020				
+							</p>
+							<p class="relate-post-content">
+								1234567891011121314151617181920212223242526v-model：双向绑定v-html：用于输出 html 代码v-bind：用于给html标签设置计算属性，内联字符串拼接，表达式，调用函数，使用对...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/18/tmp/" title="tmp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="tmp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/17/Vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6(%E8%BD%AC)/" title="Vue-自定义事件(转)">
+								Vue-自定义事件(转)			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 17日, 2020				
+							</p>
+							<p class="relate-post-content">
+								转发自：https://www.cnblogs.com/sea-breeze/p/11302146.html
+MyParent.vue1234567891011121314151617181920212223242526272829&...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/17/Vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6(%E8%BD%AC)/" title="Vue-自定义事件(转)">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-自定义事件(转)"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/17/Vue-%E3%80%90v-model%E3%80%91%E4%BD%BF%E7%94%A8/" title="Vue-【v-model】使用">
+								Vue-【v-model】使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 17日, 2020				
+							</p>
+							<p class="relate-post-content">
+								input标签的使用v-model进行数据双向绑定-复选框1234567891011121314151617181920212223242526272829303132333435&lt;!DOCTYPE html&gt;&lt;ht...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/17/Vue-%E3%80%90v-model%E3%80%91%E4%BD%BF%E7%94%A8/" title="Vue-【v-model】使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-【v-model】使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/17/Vue-%E3%80%90v-bind%E3%80%91%E4%BD%BF%E7%94%A8/" title="Vue-【v-bind】使用">
+								Vue-【v-bind】使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 17日, 2020				
+							</p>
+							<p class="relate-post-content">
+								v-bind应用在HTML的class属性123456789101112131415161718192021222324252627282930&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/17/Vue-%E3%80%90v-bind%E3%80%91%E4%BD%BF%E7%94%A8/" title="Vue-【v-bind】使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-【v-bind】使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/17/Vue-%E3%80%90v-html%E3%80%91%E4%BD%BF%E7%94%A8/" title="Vue-【v-html】使用">
+								Vue-【v-html】使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 17日, 2020				
+							</p>
+							<p class="relate-post-content">
+								v-html简单使用1234567891011121314151617181920212223242526&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt;		&lt;meta charset...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/17/Vue-%E3%80%90v-html%E3%80%91%E4%BD%BF%E7%94%A8/" title="Vue-【v-html】使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-【v-html】使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/17/Vue-methods%E4%BD%BF%E7%94%A8/" title="Vue-methods使用">
+								Vue-methods使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 17日, 2020				
+							</p>
+							<p class="relate-post-content">
+								在html标签中使用方法-html模板12345678910111213141516171819202122232425262728293031323334&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;h...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/17/Vue-methods%E4%BD%BF%E7%94%A8/" title="Vue-methods使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-methods使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/17/%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" title="组件的通信方式">
+								组件的通信方式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 17日, 2020				
+							</p>
+							<p class="relate-post-content">
+								父组件–props–父组件向子组件传值123456789101112131415161718192021222324252627&lt;template&gt;  &lt;!-- 3.使用组件 --&gt;  &lt;my-child...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/17/%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" title="组件的通信方式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="组件的通信方式"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/13/Vue-%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/" title="Vue-组件学习">
+								Vue-组件学习			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 13日, 2020				
+							</p>
+							<p class="relate-post-content">
+								监听组件实践【默认是当前组件】123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/13/Vue-%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/" title="Vue-组件学习">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-组件学习"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/13/Vue-%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5%E7%BB%91%E5%AE%9A/" title="Vue-表单输入绑定">
+								Vue-表单输入绑定			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 13日, 2020				
+							</p>
+							<p class="relate-post-content">
+								在表单上的简单实例123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/13/Vue-%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5%E7%BB%91%E5%AE%9A/" title="Vue-表单输入绑定">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-表单输入绑定"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/13/Vue-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" title="Vue-事件处理">
+								Vue-事件处理			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 13日, 2020				
+							</p>
+							<p class="relate-post-content">
+								简单的事件处理方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/13/Vue-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" title="Vue-事件处理">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Vue-事件处理"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>

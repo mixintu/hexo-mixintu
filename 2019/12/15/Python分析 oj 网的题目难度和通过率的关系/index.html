@@ -1,0 +1,1060 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Python分析 oj 网的题目难度和通过率的关系 | 迷心兔
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「Python分析 oj 网的题目难度和通过率的关系」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2019/12/15/Python%E5%88%86%E6%9E%90%20oj%20%E7%BD%91%E7%9A%84%E9%A2%98%E7%9B%AE%E9%9A%BE%E5%BA%A6%E5%92%8C%E9%80%9A%E8%BF%87%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="url">
+		Python分析 oj 网的题目难度和通过率的关系
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2019/12/15/Python%E5%88%86%E6%9E%90%20oj%20%E7%BD%91%E7%9A%84%E9%A2%98%E7%9B%AE%E9%9A%BE%E5%BA%A6%E5%92%8C%E9%80%9A%E8%BF%87%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="url">
+		<time datetime="2019-12-15T05:54:20.228Z" itemprop="dateUpdated">
+	  		2020-04-21
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> gevent</span><br><span class="line"><span class="keyword">from</span> gevent.queue <span class="keyword">import</span> Queue</span><br><span class="line"><span class="comment"># 原作链接：http://www.likecs.com/default/index/show?id=51226</span></span><br><span class="line"><span class="comment"># 自己的网站：https://mixintu.github.io/</span></span><br><span class="line">q = Queue( )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fetch</span><span class="params">(url)</span>:</span>  <span class="comment"># 获取源码</span></span><br><span class="line">    print(<span class="string">"get: &#123;&#125;"</span>.format(url))</span><br><span class="line">    response = requests.get(url)</span><br><span class="line">    <span class="keyword">assert</span> response.status_code == <span class="number">200</span></span><br><span class="line">    <span class="keyword">return</span> parse(response)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(response)</span>:</span>  <span class="comment"># 解析数据</span></span><br><span class="line">    items = []</span><br><span class="line">    data = json.loads(response.text)[<span class="string">'data'</span>][<span class="string">'results'</span>]</span><br><span class="line">    <span class="keyword">if</span> data:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">            item = &#123;&#125;</span><br><span class="line">            submissionNo = int(data[i][<span class="string">'submission_number'</span>])</span><br><span class="line">            acceptedNo = int(data[i][<span class="string">'accepted_number'</span>])</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                passingRate = round((acceptedNo / submissionNo) * <span class="number">100</span>, <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">                passingRate = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">            item[<span class="string">'编号'</span>] = data[i][<span class="string">'_id'</span>]</span><br><span class="line">            item[<span class="string">'标题'</span>] = data[i][<span class="string">'title'</span>]</span><br><span class="line">            item[<span class="string">'难度'</span>] = data[i][<span class="string">'difficulty'</span>]</span><br><span class="line">            item[<span class="string">'提交量'</span>] = submissionNo</span><br><span class="line">            item[<span class="string">'正确数'</span>] = acceptedNo</span><br><span class="line">            item[<span class="string">'正确率'</span>] = <span class="string">f"<span class="subst">&#123;passingRate&#125;</span>%"</span></span><br><span class="line">            items.append(item)</span><br><span class="line">    q.put(items)</span><br><span class="line">    gevent.sleep(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_csv</span><span class="params">(number)</span>:</span>  <span class="comment"># 保存至csv文件</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    另外的csv写入方式：https://mixintu.github.io/2019/11/14/lagou/</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    headers = [<span class="string">'编号'</span>, <span class="string">'标题'</span>, <span class="string">'难度'</span>, <span class="string">'提交量'</span>, <span class="string">'正确数'</span>, <span class="string">'正确率'</span>]</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'qiye.csv'</span>, <span class="string">'w'</span>, encoding = <span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f_scv = csv.DictWriter(f, fieldnames = headers)</span><br><span class="line">        f_scv.writeheader( )</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(number):</span><br><span class="line">            items = q.get( )</span><br><span class="line">            f_scv.writerows(items)</span><br><span class="line">            print(items)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment"># 使用gevent实现协程-----------------------------------------------</span></span><br><span class="line">    number = <span class="number">11</span></span><br><span class="line">    baseurl = <span class="string">'http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=&#123;0&#125;'</span></span><br><span class="line">    urls = [baseurl.format(i * <span class="number">20</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, number)]</span><br><span class="line">    jobs = [gevent.spawn(fetch, url) <span class="keyword">for</span> url <span class="keyword">in</span> urls]</span><br><span class="line">    gevent.joinall(jobs)</span><br><span class="line">    <span class="comment"># 打印或保存数据---------------------------------------------------</span></span><br><span class="line">    save_csv(number)</span><br></pre></td></tr></table></figure>
+
+<pre><code>get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=0
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=20
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=40
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=60
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=80
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=100
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=120
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=140
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=160
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=180
+get: http://oj.dgut.edu.cn/api/xproblem/?limit=20&amp;offset=200
+[{&apos;编号&apos;: &apos;1&apos;, &apos;标题&apos;: &apos;2^k进制数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 274, &apos;正确数&apos;: 72, &apos;正确率&apos;: &apos;26.28%&apos;}, {&apos;编号&apos;: &apos;4&apos;, &apos;标题&apos;: &apos;马拦过河卒&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 288, &apos;正确数&apos;: 133, &apos;正确率&apos;: &apos;46.18%&apos;}, {&apos;编号&apos;: &apos;5&apos;, &apos;标题&apos;: &apos;产生数&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 310, &apos;正确数&apos;: 33, &apos;正确率&apos;: &apos;10.65%&apos;}, {&apos;编号&apos;: &apos;6&apos;, &apos;标题&apos;: &apos;【排队买票】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 445, &apos;正确数&apos;: 194, &apos;正确率&apos;: &apos;43.6%&apos;}, {&apos;编号&apos;: &apos;9&apos;, &apos;标题&apos;: &apos;【C语言训练】计算t=1+1/2+1/3+...+1/n&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1522, &apos;正确数&apos;: 514, &apos;正确率&apos;: &apos;33.77%&apos;}, {&apos;编号&apos;: &apos;10&apos;, &apos;标题&apos;: &apos;检查一个数是否为质数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1268, &apos;正确数&apos;: 549, &apos;正确率&apos;: &apos;43.3%&apos;}, {&apos;编号&apos;: &apos;11&apos;, &apos;标题&apos;: &apos;【C语言训练】素数问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1087, &apos;正确数&apos;: 504, &apos;正确率&apos;: &apos;46.37%&apos;}, {&apos;编号&apos;: &apos;15&apos;, &apos;标题&apos;: &apos;【C语言训练】求矩阵的两对角线上的元素之和&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 730, &apos;正确数&apos;: 350, &apos;正确率&apos;: &apos;47.95%&apos;}, {&apos;编号&apos;: &apos;16&apos;, &apos;标题&apos;: &apos;【C语言训练】求素数问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1137, &apos;正确数&apos;: 420, &apos;正确率&apos;: &apos;36.94%&apos;}, {&apos;编号&apos;: &apos;17&apos;, &apos;标题&apos;: &apos;众数问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 651, &apos;正确数&apos;: 311, &apos;正确率&apos;: &apos;47.77%&apos;}, {&apos;编号&apos;: &apos;18&apos;, &apos;标题&apos;: &apos;复数加法&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 523, &apos;正确数&apos;: 342, &apos;正确率&apos;: &apos;65.39%&apos;}, {&apos;编号&apos;: &apos;20&apos;, &apos;标题&apos;: &apos;C语言程序设计教程（第三版）课后习题4.8&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 624, &apos;正确数&apos;: 286, &apos;正确率&apos;: &apos;45.83%&apos;}, {&apos;编号&apos;: &apos;23&apos;, &apos;标题&apos;: &apos;多输入输出练习1&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 571, &apos;正确数&apos;: 241, &apos;正确率&apos;: &apos;42.21%&apos;}, {&apos;编号&apos;: &apos;24&apos;, &apos;标题&apos;: &apos;麦森数&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 79, &apos;正确数&apos;: 11, &apos;正确率&apos;: &apos;13.92%&apos;}, {&apos;编号&apos;: &apos;25&apos;, &apos;标题&apos;: &apos;求组合数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 378, &apos;正确数&apos;: 200, &apos;正确率&apos;: &apos;52.91%&apos;}, {&apos;编号&apos;: &apos;26&apos;, &apos;标题&apos;: &apos;文科生的悲哀&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 328, &apos;正确数&apos;: 116, &apos;正确率&apos;: &apos;35.37%&apos;}, {&apos;编号&apos;: &apos;27&apos;, &apos;标题&apos;: &apos;【C语言训练】计算：t=1-1/(2*2)-1/(3*3)-...-1/(m*m)&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 712, &apos;正确数&apos;: 353, &apos;正确率&apos;: &apos;49.58%&apos;}, {&apos;编号&apos;: &apos;28&apos;, &apos;标题&apos;: &apos;明明的随机数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 539, &apos;正确数&apos;: 194, &apos;正确率&apos;: &apos;35.99%&apos;}, {&apos;编号&apos;: &apos;31&apos;, &apos;标题&apos;: &apos;K-进制数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 91, &apos;正确数&apos;: 33, &apos;正确率&apos;: &apos;36.26%&apos;}, {&apos;编号&apos;: &apos;33&apos;, &apos;标题&apos;: &apos;【作业调度方案】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 11, &apos;正确数&apos;: 10, &apos;正确率&apos;: &apos;90.91%&apos;}]
+[{&apos;编号&apos;: &apos;35&apos;, &apos;标题&apos;: &apos;【C语言训练】角谷猜想&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 585, &apos;正确数&apos;: 342, &apos;正确率&apos;: &apos;58.46%&apos;}, {&apos;编号&apos;: &apos;38&apos;, &apos;标题&apos;: &apos;数列问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 545, &apos;正确数&apos;: 283, &apos;正确率&apos;: &apos;51.93%&apos;}, {&apos;编号&apos;: &apos;39&apos;, &apos;标题&apos;: &apos;【C语言训练】斐波纳契数列&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 897, &apos;正确数&apos;: 350, &apos;正确率&apos;: &apos;39.02%&apos;}, {&apos;编号&apos;: &apos;40&apos;, &apos;标题&apos;: &apos;神奇的fans&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 544, &apos;正确数&apos;: 136, &apos;正确率&apos;: &apos;25.0%&apos;}, {&apos;编号&apos;: &apos;41&apos;, &apos;标题&apos;: &apos;假币问题&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 464, &apos;正确数&apos;: 78, &apos;正确率&apos;: &apos;16.81%&apos;}, {&apos;编号&apos;: &apos;43&apos;, &apos;标题&apos;: &apos;奖学金&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 190, &apos;正确数&apos;: 65, &apos;正确率&apos;: &apos;34.21%&apos;}, {&apos;编号&apos;: &apos;45&apos;, &apos;标题&apos;: &apos;【C语言训练】排序问题&lt;2&gt;&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 590, &apos;正确数&apos;: 270, &apos;正确率&apos;: &apos;45.76%&apos;}, {&apos;编号&apos;: &apos;47&apos;, &apos;标题&apos;: &apos;2^k进制数&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 46, &apos;正确数&apos;: 33, &apos;正确率&apos;: &apos;71.74%&apos;}, {&apos;编号&apos;: &apos;48&apos;, &apos;标题&apos;: &apos;使用栈实现进制转换&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 91, &apos;正确数&apos;: 52, &apos;正确率&apos;: &apos;57.14%&apos;}, {&apos;编号&apos;: &apos;49&apos;, &apos;标题&apos;: &apos;半数集问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 64, &apos;正确数&apos;: 23, &apos;正确率&apos;: &apos;35.94%&apos;}, {&apos;编号&apos;: &apos;51&apos;, &apos;标题&apos;: &apos;【矩阵】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 14, &apos;正确数&apos;: 9, &apos;正确率&apos;: &apos;64.29%&apos;}, {&apos;编号&apos;: &apos;53&apos;, &apos;标题&apos;: &apos;【偶数求和】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 271, &apos;正确数&apos;: 139, &apos;正确率&apos;: &apos;51.29%&apos;}, {&apos;编号&apos;: &apos;54&apos;, &apos;标题&apos;: &apos;【亲和数】&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 339, &apos;正确数&apos;: 233, &apos;正确率&apos;: &apos;68.73%&apos;}, {&apos;编号&apos;: &apos;55&apos;, &apos;标题&apos;: &apos;Cylinder&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 35, &apos;正确数&apos;: 21, &apos;正确率&apos;: &apos;60.0%&apos;}, {&apos;编号&apos;: &apos;56&apos;, &apos;标题&apos;: &apos;最小公倍数&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 749, &apos;正确数&apos;: 392, &apos;正确率&apos;: &apos;52.34%&apos;}, {&apos;编号&apos;: &apos;57&apos;, &apos;标题&apos;: &apos;取石子游戏&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 74, &apos;正确数&apos;: 23, &apos;正确率&apos;: &apos;31.08%&apos;}, {&apos;编号&apos;: &apos;59&apos;, &apos;标题&apos;: &apos;【金明的预算方案】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 18, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;5.56%&apos;}, {&apos;编号&apos;: &apos;60&apos;, &apos;标题&apos;: &apos;孤独的骑士&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 215, &apos;正确数&apos;: 76, &apos;正确率&apos;: &apos;35.35%&apos;}, {&apos;编号&apos;: &apos;61&apos;, &apos;标题&apos;: &apos;简单的事情&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 296, &apos;正确数&apos;: 132, &apos;正确率&apos;: &apos;44.59%&apos;}, {&apos;编号&apos;: &apos;62&apos;, &apos;标题&apos;: &apos;三角形&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 160, &apos;正确数&apos;: 49, &apos;正确率&apos;: &apos;30.63%&apos;}]
+[{&apos;编号&apos;: &apos;63&apos;, &apos;标题&apos;: &apos;【回文数(二)】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 102, &apos;正确数&apos;: 38, &apos;正确率&apos;: &apos;37.25%&apos;}, {&apos;编号&apos;: &apos;64&apos;, &apos;标题&apos;: &apos;【魔板】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 13, &apos;正确数&apos;: 7, &apos;正确率&apos;: &apos;53.85%&apos;}, {&apos;编号&apos;: &apos;65&apos;, &apos;标题&apos;: &apos;【数组的距离】&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 392, &apos;正确数&apos;: 194, &apos;正确率&apos;: &apos;49.49%&apos;}, {&apos;编号&apos;: &apos;67&apos;, &apos;标题&apos;: &apos;筛排处理&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 368, &apos;正确数&apos;: 103, &apos;正确率&apos;: &apos;27.99%&apos;}, {&apos;编号&apos;: &apos;68&apos;, &apos;标题&apos;: &apos;循环数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 15, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;6.67%&apos;}, {&apos;编号&apos;: &apos;70&apos;, &apos;标题&apos;: &apos;上车人数&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 110, &apos;正确数&apos;: 65, &apos;正确率&apos;: &apos;59.09%&apos;}, {&apos;编号&apos;: &apos;72&apos;, &apos;标题&apos;: &apos;【求[X,Y]内被除3余1并且被除5余3的整数的和】&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 329, &apos;正确数&apos;: 276, &apos;正确率&apos;: &apos;83.89%&apos;}, {&apos;编号&apos;: &apos;73&apos;, &apos;标题&apos;: &apos;【计算直线的交点数】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 47, &apos;正确数&apos;: 20, &apos;正确率&apos;: &apos;42.55%&apos;}, {&apos;编号&apos;: &apos;74&apos;, &apos;标题&apos;: &apos;最多约数问题&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 130, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;0.77%&apos;}, {&apos;编号&apos;: &apos;75&apos;, &apos;标题&apos;: &apos;独木桥&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 43, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;2.33%&apos;}, {&apos;编号&apos;: &apos;76&apos;, &apos;标题&apos;: &apos;级数求和&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 446, &apos;正确数&apos;: 213, &apos;正确率&apos;: &apos;47.76%&apos;}, {&apos;编号&apos;: &apos;77&apos;, &apos;标题&apos;: &apos;数列有序&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 489, &apos;正确数&apos;: 115, &apos;正确率&apos;: &apos;23.52%&apos;}, {&apos;编号&apos;: &apos;78&apos;, &apos;标题&apos;: &apos;【C语言训练】计算一个整数N的阶乘&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 655, &apos;正确数&apos;: 364, &apos;正确率&apos;: &apos;55.57%&apos;}, {&apos;编号&apos;: &apos;79&apos;, &apos;标题&apos;: &apos;复数乘积&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 286, &apos;正确数&apos;: 209, &apos;正确率&apos;: &apos;73.08%&apos;}, {&apos;编号&apos;: &apos;80&apos;, &apos;标题&apos;: &apos;年会&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;81&apos;, &apos;标题&apos;: &apos;开心的金明&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 54, &apos;正确数&apos;: 30, &apos;正确率&apos;: &apos;55.56%&apos;}, {&apos;编号&apos;: &apos;82&apos;, &apos;标题&apos;: &apos;【出圈】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 179, &apos;正确数&apos;: 65, &apos;正确率&apos;: &apos;36.31%&apos;}, {&apos;编号&apos;: &apos;83&apos;, &apos;标题&apos;: &apos;整除的尾数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 254, &apos;正确数&apos;: 91, &apos;正确率&apos;: &apos;35.83%&apos;}, {&apos;编号&apos;: &apos;85&apos;, &apos;标题&apos;: &apos;【密码】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 268, &apos;正确数&apos;: 88, &apos;正确率&apos;: &apos;32.84%&apos;}, {&apos;编号&apos;: &apos;86&apos;, &apos;标题&apos;: &apos;盐水的故事&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 245, &apos;正确数&apos;: 106, &apos;正确率&apos;: &apos;43.27%&apos;}]
+[{&apos;编号&apos;: &apos;87&apos;, &apos;标题&apos;: &apos;【C语言训练】求函数值&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 431, &apos;正确数&apos;: 319, &apos;正确率&apos;: &apos;74.01%&apos;}, {&apos;编号&apos;: &apos;88&apos;, &apos;标题&apos;: &apos;数字统计&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 218, &apos;正确数&apos;: 142, &apos;正确率&apos;: &apos;65.14%&apos;}, {&apos;编号&apos;: &apos;90&apos;, &apos;标题&apos;: &apos;小教官&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 2, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;92&apos;, &apos;标题&apos;: &apos;【C语言训练】最大数问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 675, &apos;正确数&apos;: 208, &apos;正确率&apos;: &apos;30.81%&apos;}, {&apos;编号&apos;: &apos;93&apos;, &apos;标题&apos;: &apos;【C语言训练】&quot;水仙花数&quot;问题1&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 609, &apos;正确数&apos;: 328, &apos;正确率&apos;: &apos;53.86%&apos;}, {&apos;编号&apos;: &apos;94&apos;, &apos;标题&apos;: &apos;金明的预算方案&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 13, &apos;正确数&apos;: 11, &apos;正确率&apos;: &apos;84.62%&apos;}, {&apos;编号&apos;: &apos;95&apos;, &apos;标题&apos;: &apos;平方和与立方和&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 293, &apos;正确数&apos;: 129, &apos;正确率&apos;: &apos;44.03%&apos;}, {&apos;编号&apos;: &apos;96&apos;, &apos;标题&apos;: &apos;青年歌手大奖赛_评委会打分&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 258, &apos;正确数&apos;: 144, &apos;正确率&apos;: &apos;55.81%&apos;}, {&apos;编号&apos;: &apos;97&apos;, &apos;标题&apos;: &apos;Ecological Bin Packing&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 4, &apos;正确数&apos;: 3, &apos;正确率&apos;: &apos;75.0%&apos;}, {&apos;编号&apos;: &apos;98&apos;, &apos;标题&apos;: &apos;老王赛马&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 70, &apos;正确数&apos;: 32, &apos;正确率&apos;: &apos;45.71%&apos;}, {&apos;编号&apos;: &apos;99&apos;, &apos;标题&apos;: &apos;统计立方数&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 391, &apos;正确数&apos;: 218, &apos;正确率&apos;: &apos;55.75%&apos;}, {&apos;编号&apos;: &apos;100&apos;, &apos;标题&apos;: &apos;【C语言训练】自由落体问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 538, &apos;正确数&apos;: 254, &apos;正确率&apos;: &apos;47.21%&apos;}, {&apos;编号&apos;: &apos;102&apos;, &apos;标题&apos;: &apos;【简单计算】&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 98, &apos;正确数&apos;: 21, &apos;正确率&apos;: &apos;21.43%&apos;}, {&apos;编号&apos;: &apos;103&apos;, &apos;标题&apos;: &apos;愚蠢的摄影师&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 32, &apos;正确数&apos;: 16, &apos;正确率&apos;: &apos;50.0%&apos;}, {&apos;编号&apos;: &apos;104&apos;, &apos;标题&apos;: &apos;【计算球体积】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 410, &apos;正确数&apos;: 192, &apos;正确率&apos;: &apos;46.83%&apos;}, {&apos;编号&apos;: &apos;105&apos;, &apos;标题&apos;: &apos;逆反的01串&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 349, &apos;正确数&apos;: 172, &apos;正确率&apos;: &apos;49.28%&apos;}, {&apos;编号&apos;: &apos;106&apos;, &apos;标题&apos;: &apos;Jam的计数法&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 11, &apos;正确数&apos;: 11, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;107&apos;, &apos;标题&apos;: &apos;破解平方数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1, &apos;正确数&apos;: 0, &apos;正确率&apos;: &apos;0.0%&apos;}, {&apos;编号&apos;: &apos;109&apos;, &apos;标题&apos;: &apos;数列排序&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 182, &apos;正确数&apos;: 61, &apos;正确率&apos;: &apos;33.52%&apos;}, {&apos;编号&apos;: &apos;110&apos;, &apos;标题&apos;: &apos;【C语言训练】排序问题&lt;1&gt;&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 431, &apos;正确数&apos;: 249, &apos;正确率&apos;: &apos;57.77%&apos;}]
+[{&apos;编号&apos;: &apos;111&apos;, &apos;标题&apos;: &apos;哥德巴赫曾猜测&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 225, &apos;正确数&apos;: 129, &apos;正确率&apos;: &apos;57.33%&apos;}, {&apos;编号&apos;: &apos;112&apos;, &apos;标题&apos;: &apos;【C语言训练】计算1~N之间所有奇数之和&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 414, &apos;正确数&apos;: 292, &apos;正确率&apos;: &apos;70.53%&apos;}, {&apos;编号&apos;: &apos;113&apos;, &apos;标题&apos;: &apos;【蟠桃记】&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 234, &apos;正确数&apos;: 171, &apos;正确率&apos;: &apos;73.08%&apos;}, {&apos;编号&apos;: &apos;114&apos;, &apos;标题&apos;: &apos;做幻方&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 59, &apos;正确数&apos;: 21, &apos;正确率&apos;: &apos;35.59%&apos;}, {&apos;编号&apos;: &apos;115&apos;, &apos;标题&apos;: &apos;考试排名&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 26, &apos;正确数&apos;: 9, &apos;正确率&apos;: &apos;34.62%&apos;}, {&apos;编号&apos;: &apos;116&apos;, &apos;标题&apos;: &apos;能量项链&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 21, &apos;正确数&apos;: 9, &apos;正确率&apos;: &apos;42.86%&apos;}, {&apos;编号&apos;: &apos;117&apos;, &apos;标题&apos;: &apos;人见人爱A+B&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 285, &apos;正确数&apos;: 129, &apos;正确率&apos;: &apos;45.26%&apos;}, {&apos;编号&apos;: &apos;118&apos;, &apos;标题&apos;: &apos;判断升序&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 211, &apos;正确数&apos;: 139, &apos;正确率&apos;: &apos;65.88%&apos;}, {&apos;编号&apos;: &apos;121&apos;, &apos;标题&apos;: &apos;防御导弹&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 151, &apos;正确数&apos;: 39, &apos;正确率&apos;: &apos;25.83%&apos;}, {&apos;编号&apos;: &apos;124&apos;, &apos;标题&apos;: &apos;最小重量机器设计问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 15, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;6.67%&apos;}, {&apos;编号&apos;: &apos;125&apos;, &apos;标题&apos;: &apos;【C语言训练】立方和不等式&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 406, &apos;正确数&apos;: 191, &apos;正确率&apos;: &apos;47.04%&apos;}, {&apos;编号&apos;: &apos;127&apos;, &apos;标题&apos;: &apos;排列&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 115, &apos;正确数&apos;: 12, &apos;正确率&apos;: &apos;10.43%&apos;}, {&apos;编号&apos;: &apos;128&apos;, &apos;标题&apos;: &apos;回文数(一)&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 156, &apos;正确数&apos;: 102, &apos;正确率&apos;: &apos;65.38%&apos;}, {&apos;编号&apos;: &apos;129&apos;, &apos;标题&apos;: &apos;十-&gt;二进制转换&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 300, &apos;正确数&apos;: 85, &apos;正确率&apos;: &apos;28.33%&apos;}, {&apos;编号&apos;: &apos;130&apos;, &apos;标题&apos;: &apos;通话记录&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 132, &apos;正确数&apos;: 34, &apos;正确率&apos;: &apos;25.76%&apos;}, {&apos;编号&apos;: &apos;131&apos;, &apos;标题&apos;: &apos;母牛生小牛&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 285, &apos;正确数&apos;: 107, &apos;正确率&apos;: &apos;37.54%&apos;}, {&apos;编号&apos;: &apos;132&apos;, &apos;标题&apos;: &apos;三进制小数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 37, &apos;正确数&apos;: 20, &apos;正确率&apos;: &apos;54.05%&apos;}, {&apos;编号&apos;: &apos;133&apos;, &apos;标题&apos;: &apos;【能量项链】&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 10, &apos;正确数&apos;: 3, &apos;正确率&apos;: &apos;30.0%&apos;}, {&apos;编号&apos;: &apos;135&apos;, &apos;标题&apos;: &apos;金额的中文大写&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 12, &apos;正确数&apos;: 4, &apos;正确率&apos;: &apos;33.33%&apos;}, {&apos;编号&apos;: &apos;136&apos;, &apos;标题&apos;: &apos;检查金币&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 84, &apos;正确数&apos;: 47, &apos;正确率&apos;: &apos;55.95%&apos;}]
+[{&apos;编号&apos;: &apos;137&apos;, &apos;标题&apos;: &apos;化学品问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 50, &apos;正确数&apos;: 18, &apos;正确率&apos;: &apos;36.0%&apos;}, {&apos;编号&apos;: &apos;139&apos;, &apos;标题&apos;: &apos;IP判断&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 161, &apos;正确数&apos;: 81, &apos;正确率&apos;: &apos;50.31%&apos;}, {&apos;编号&apos;: &apos;140&apos;, &apos;标题&apos;: &apos;人民币问题&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 139, &apos;正确数&apos;: 110, &apos;正确率&apos;: &apos;79.14%&apos;}, {&apos;编号&apos;: &apos;146&apos;, &apos;标题&apos;: &apos;最爱回文串&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 149, &apos;正确数&apos;: 60, &apos;正确率&apos;: &apos;40.27%&apos;}, {&apos;编号&apos;: &apos;147&apos;, &apos;标题&apos;: &apos;二叉树问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 9, &apos;正确数&apos;: 9, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;148&apos;, &apos;标题&apos;: &apos;小明的约会&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 108, &apos;正确数&apos;: 25, &apos;正确率&apos;: &apos;23.15%&apos;}, {&apos;编号&apos;: &apos;149&apos;, &apos;标题&apos;: &apos;朋友圈&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 28, &apos;正确数&apos;: 9, &apos;正确率&apos;: &apos;32.14%&apos;}, {&apos;编号&apos;: &apos;150&apos;, &apos;标题&apos;: &apos;银行业务队列&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 57, &apos;正确数&apos;: 35, &apos;正确率&apos;: &apos;61.4%&apos;}, {&apos;编号&apos;: &apos;151&apos;, &apos;标题&apos;: &apos;世界杯来了&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 37, &apos;正确数&apos;: 13, &apos;正确率&apos;: &apos;35.14%&apos;}, {&apos;编号&apos;: &apos;152&apos;, &apos;标题&apos;: &apos;我是管理员&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 47, &apos;正确数&apos;: 18, &apos;正确率&apos;: &apos;38.3%&apos;}, {&apos;编号&apos;: &apos;153&apos;, &apos;标题&apos;: &apos;中国好OJ&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 107, &apos;正确数&apos;: 23, &apos;正确率&apos;: &apos;21.5%&apos;}, {&apos;编号&apos;: &apos;154&apos;, &apos;标题&apos;: &apos;高分笔记叠罗汉&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 8, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;25.0%&apos;}, {&apos;编号&apos;: &apos;155&apos;, &apos;标题&apos;: &apos;ACM俱乐部大聚会&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 2, &apos;正确数&apos;: 0, &apos;正确率&apos;: &apos;0.0%&apos;}, {&apos;编号&apos;: &apos;156&apos;, &apos;标题&apos;: &apos;火爆的一乐拉面&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 113, &apos;正确数&apos;: 50, &apos;正确率&apos;: &apos;44.25%&apos;}, {&apos;编号&apos;: &apos;157&apos;, &apos;标题&apos;: &apos;哆啦A梦的口袋&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 92, &apos;正确数&apos;: 29, &apos;正确率&apos;: &apos;31.52%&apos;}, {&apos;编号&apos;: &apos;158&apos;, &apos;标题&apos;: &apos;拯救雅典娜&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 23, &apos;正确数&apos;: 13, &apos;正确率&apos;: &apos;56.52%&apos;}, {&apos;编号&apos;: &apos;159&apos;, &apos;标题&apos;: &apos;帮助名侦探&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 11, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;18.18%&apos;}, {&apos;编号&apos;: &apos;160&apos;, &apos;标题&apos;: &apos;阻击火箭队&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;161&apos;, &apos;标题&apos;: &apos;Think Different&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 68, &apos;正确数&apos;: 34, &apos;正确率&apos;: &apos;50.0%&apos;}, {&apos;编号&apos;: &apos;162&apos;, &apos;标题&apos;: &apos;求上网&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 43, &apos;正确数&apos;: 29, &apos;正确率&apos;: &apos;67.44%&apos;}]
+[{&apos;编号&apos;: &apos;163&apos;, &apos;标题&apos;: &apos;整理试卷&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 70, &apos;正确数&apos;: 47, &apos;正确率&apos;: &apos;67.14%&apos;}, {&apos;编号&apos;: &apos;164&apos;, &apos;标题&apos;: &apos;迷瘴&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 8, &apos;正确数&apos;: 4, &apos;正确率&apos;: &apos;50.0%&apos;}, {&apos;编号&apos;: &apos;165&apos;, &apos;标题&apos;: &apos;ACM俱乐部密码&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 31, &apos;正确数&apos;: 16, &apos;正确率&apos;: &apos;51.61%&apos;}, {&apos;编号&apos;: &apos;166&apos;, &apos;标题&apos;: &apos;神奇的工号&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 80, &apos;正确数&apos;: 29, &apos;正确率&apos;: &apos;36.25%&apos;}, {&apos;编号&apos;: &apos;167&apos;, &apos;标题&apos;: &apos;年终大奖&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 48, &apos;正确数&apos;: 13, &apos;正确率&apos;: &apos;27.08%&apos;}, {&apos;编号&apos;: &apos;168&apos;, &apos;标题&apos;: &apos;加密&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 117, &apos;正确数&apos;: 30, &apos;正确率&apos;: &apos;25.64%&apos;}, {&apos;编号&apos;: &apos;169&apos;, &apos;标题&apos;: &apos;搞破坏&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 129, &apos;正确数&apos;: 71, &apos;正确率&apos;: &apos;55.04%&apos;}, {&apos;编号&apos;: &apos;170&apos;, &apos;标题&apos;: &apos;解密信息&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 136, &apos;正确数&apos;: 40, &apos;正确率&apos;: &apos;29.41%&apos;}, {&apos;编号&apos;: &apos;171&apos;, &apos;标题&apos;: &apos;老旧的钟表&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 41, &apos;正确数&apos;: 16, &apos;正确率&apos;: &apos;39.02%&apos;}, {&apos;编号&apos;: &apos;172&apos;, &apos;标题&apos;: &apos;数列3&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 60, &apos;正确数&apos;: 6, &apos;正确率&apos;: &apos;10.0%&apos;}, {&apos;编号&apos;: &apos;173&apos;, &apos;标题&apos;: &apos;可恶的雾霾天&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;174&apos;, &apos;标题&apos;: &apos;窃贼&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 50, &apos;正确数&apos;: 27, &apos;正确率&apos;: &apos;54.0%&apos;}, {&apos;编号&apos;: &apos;175&apos;, &apos;标题&apos;: &apos;N的阶乘&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 499, &apos;正确数&apos;: 84, &apos;正确率&apos;: &apos;16.83%&apos;}, {&apos;编号&apos;: &apos;176&apos;, &apos;标题&apos;: &apos;简单计算器 &apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 44, &apos;正确数&apos;: 13, &apos;正确率&apos;: &apos;29.55%&apos;}, {&apos;编号&apos;: &apos;177&apos;, &apos;标题&apos;: &apos;二叉排序树&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 37, &apos;正确数&apos;: 4, &apos;正确率&apos;: &apos;10.81%&apos;}, {&apos;编号&apos;: &apos;178&apos;, &apos;标题&apos;: &apos;二叉搜索树 &apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 11, &apos;正确数&apos;: 7, &apos;正确率&apos;: &apos;63.64%&apos;}, {&apos;编号&apos;: &apos;179&apos;, &apos;标题&apos;: &apos;哈夫曼树&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 10, &apos;正确数&apos;: 6, &apos;正确率&apos;: &apos;60.0%&apos;}, {&apos;编号&apos;: &apos;180&apos;, &apos;标题&apos;: &apos;浮点数加法 &apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 34, &apos;正确数&apos;: 12, &apos;正确率&apos;: &apos;35.29%&apos;}, {&apos;编号&apos;: &apos;181&apos;, &apos;标题&apos;: &apos;排序&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 227, &apos;正确数&apos;: 3, &apos;正确率&apos;: &apos;1.32%&apos;}, {&apos;编号&apos;: &apos;182&apos;, &apos;标题&apos;: &apos;成绩排序1&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 187, &apos;正确数&apos;: 43, &apos;正确率&apos;: &apos;22.99%&apos;}]
+[{&apos;编号&apos;: &apos;183&apos;, &apos;标题&apos;: &apos;特殊排序&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 309, &apos;正确数&apos;: 65, &apos;正确率&apos;: &apos;21.04%&apos;}, {&apos;编号&apos;: &apos;184&apos;, &apos;标题&apos;: &apos;字符串内排序&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 184, &apos;正确数&apos;: 68, &apos;正确率&apos;: &apos;36.96%&apos;}, {&apos;编号&apos;: &apos;185&apos;, &apos;标题&apos;: &apos;日期差值&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 110, &apos;正确数&apos;: 22, &apos;正确率&apos;: &apos;20.0%&apos;}, {&apos;编号&apos;: &apos;186&apos;, &apos;标题&apos;: &apos;今年的第几天？&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 224, &apos;正确数&apos;: 101, &apos;正确率&apos;: &apos;45.09%&apos;}, {&apos;编号&apos;: &apos;187&apos;, &apos;标题&apos;: &apos;打印日期&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 248, &apos;正确数&apos;: 69, &apos;正确率&apos;: &apos;27.82%&apos;}, {&apos;编号&apos;: &apos;188&apos;, &apos;标题&apos;: &apos;统计同成绩学生人数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 214, &apos;正确数&apos;: 102, &apos;正确率&apos;: &apos;47.66%&apos;}, {&apos;编号&apos;: &apos;190&apos;, &apos;标题&apos;: &apos;找x&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 324, &apos;正确数&apos;: 95, &apos;正确率&apos;: &apos;29.32%&apos;}, {&apos;编号&apos;: &apos;191&apos;, &apos;标题&apos;: &apos;打印极值点下标&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 194, &apos;正确数&apos;: 30, &apos;正确率&apos;: &apos;15.46%&apos;}, {&apos;编号&apos;: &apos;192&apos;, &apos;标题&apos;: &apos;查找1&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 166, &apos;正确数&apos;: 70, &apos;正确率&apos;: &apos;42.17%&apos;}, {&apos;编号&apos;: &apos;193&apos;, &apos;标题&apos;: &apos;还是A+B&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 186, &apos;正确数&apos;: 53, &apos;正确率&apos;: &apos;28.49%&apos;}, {&apos;编号&apos;: &apos;194&apos;, &apos;标题&apos;: &apos;守形数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 183, &apos;正确数&apos;: 67, &apos;正确率&apos;: &apos;36.61%&apos;}, {&apos;编号&apos;: &apos;195&apos;, &apos;标题&apos;: &apos;反序数&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 300, &apos;正确数&apos;: 147, &apos;正确率&apos;: &apos;49.0%&apos;}, {&apos;编号&apos;: &apos;196&apos;, &apos;标题&apos;: &apos;又一版 A+B&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 173, &apos;正确数&apos;: 45, &apos;正确率&apos;: &apos;26.01%&apos;}, {&apos;编号&apos;: &apos;197&apos;, &apos;标题&apos;: &apos;数制转换&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 134, &apos;正确数&apos;: 41, &apos;正确率&apos;: &apos;30.6%&apos;}, {&apos;编号&apos;: &apos;198&apos;, &apos;标题&apos;: &apos;进制转换1&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 128, &apos;正确数&apos;: 41, &apos;正确率&apos;: &apos;32.03%&apos;}, {&apos;编号&apos;: &apos;199&apos;, &apos;标题&apos;: &apos;八进制&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 217, &apos;正确数&apos;: 102, &apos;正确率&apos;: &apos;47.0%&apos;}, {&apos;编号&apos;: &apos;200&apos;, &apos;标题&apos;: &apos;素数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 322, &apos;正确数&apos;: 82, &apos;正确率&apos;: &apos;25.47%&apos;}, {&apos;编号&apos;: &apos;201&apos;, &apos;标题&apos;: &apos;质因数的个数&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 132, &apos;正确数&apos;: 63, &apos;正确率&apos;: &apos;47.73%&apos;}, {&apos;编号&apos;: &apos;202&apos;, &apos;标题&apos;: &apos;进制转换2&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 79, &apos;正确数&apos;: 7, &apos;正确率&apos;: &apos;8.86%&apos;}, {&apos;编号&apos;: &apos;203&apos;, &apos;标题&apos;: &apos;10进制 VS 2进制&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 67, &apos;正确数&apos;: 14, &apos;正确率&apos;: &apos;20.9%&apos;}]
+[{&apos;编号&apos;: &apos;204&apos;, &apos;标题&apos;: &apos;最短路径2&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 14, &apos;正确数&apos;: 3, &apos;正确率&apos;: &apos;21.43%&apos;}, {&apos;编号&apos;: &apos;205&apos;, &apos;标题&apos;: &apos;abc&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 232, &apos;正确数&apos;: 132, &apos;正确率&apos;: &apos;56.9%&apos;}, {&apos;编号&apos;: &apos;206&apos;, &apos;标题&apos;: &apos;全排列&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 56, &apos;正确数&apos;: 9, &apos;正确率&apos;: &apos;16.07%&apos;}, {&apos;编号&apos;: &apos;207&apos;, &apos;标题&apos;: &apos;N阶楼梯上楼问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 128, &apos;正确数&apos;: 31, &apos;正确率&apos;: &apos;24.22%&apos;}, {&apos;编号&apos;: &apos;208&apos;, &apos;标题&apos;: &apos;单词替换&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 89, &apos;正确数&apos;: 36, &apos;正确率&apos;: &apos;40.45%&apos;}, {&apos;编号&apos;: &apos;209&apos;, &apos;标题&apos;: &apos;字符串去特定字符&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 284, &apos;正确数&apos;: 58, &apos;正确率&apos;: &apos;20.42%&apos;}, {&apos;编号&apos;: &apos;210&apos;, &apos;标题&apos;: &apos;判断三角形类型&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 301, &apos;正确数&apos;: 87, &apos;正确率&apos;: &apos;28.9%&apos;}, {&apos;编号&apos;: &apos;211&apos;, &apos;标题&apos;: &apos;互换最大最小数&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 376, &apos;正确数&apos;: 88, &apos;正确率&apos;: &apos;23.4%&apos;}, {&apos;编号&apos;: &apos;212&apos;, &apos;标题&apos;: &apos;数字阶梯求和&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 87, &apos;正确数&apos;: 34, &apos;正确率&apos;: &apos;39.08%&apos;}, {&apos;编号&apos;: &apos;213&apos;, &apos;标题&apos;: &apos;数组逆置&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 248, &apos;正确数&apos;: 57, &apos;正确率&apos;: &apos;22.98%&apos;}, {&apos;编号&apos;: &apos;214&apos;, &apos;标题&apos;: &apos;众数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 153, &apos;正确数&apos;: 54, &apos;正确率&apos;: &apos;35.29%&apos;}, {&apos;编号&apos;: &apos;215&apos;, &apos;标题&apos;: &apos;百万富翁问题&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 106, &apos;正确数&apos;: 16, &apos;正确率&apos;: &apos;15.09%&apos;}, {&apos;编号&apos;: &apos;216&apos;, &apos;标题&apos;: &apos;计算两个矩阵的乘积&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 214, &apos;正确数&apos;: 56, &apos;正确率&apos;: &apos;26.17%&apos;}, {&apos;编号&apos;: &apos;217&apos;, &apos;标题&apos;: &apos;字符串链接&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 128, &apos;正确数&apos;: 67, &apos;正确率&apos;: &apos;52.34%&apos;}, {&apos;编号&apos;: &apos;218&apos;, &apos;标题&apos;: &apos;xxx定律&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 198, &apos;正确数&apos;: 118, &apos;正确率&apos;: &apos;59.6%&apos;}, {&apos;编号&apos;: &apos;219&apos;, &apos;标题&apos;: &apos;ZOJ&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 87, &apos;正确数&apos;: 54, &apos;正确率&apos;: &apos;62.07%&apos;}, {&apos;编号&apos;: &apos;220&apos;, &apos;标题&apos;: &apos;继续xxx定律&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 3, &apos;正确数&apos;: 3, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;221&apos;, &apos;标题&apos;: &apos;找出直系亲属&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 5, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;40.0%&apos;}, {&apos;编号&apos;: &apos;222&apos;, &apos;标题&apos;: &apos;Problem C&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 67, &apos;正确数&apos;: 14, &apos;正确率&apos;: &apos;20.9%&apos;}, {&apos;编号&apos;: &apos;223&apos;, &apos;标题&apos;: &apos;Problem D&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 14, &apos;正确数&apos;: 8, &apos;正确率&apos;: &apos;57.14%&apos;}]
+[{&apos;编号&apos;: &apos;224&apos;, &apos;标题&apos;: &apos;Problem E&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 15, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;13.33%&apos;}, {&apos;编号&apos;: &apos;225&apos;, &apos;标题&apos;: &apos;字符串处理&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 8, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;25.0%&apos;}, {&apos;编号&apos;: &apos;226&apos;, &apos;标题&apos;: &apos;最短路径问题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 4, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;50.0%&apos;}, {&apos;编号&apos;: &apos;227&apos;, &apos;标题&apos;: &apos;反序字符串&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 150, &apos;正确数&apos;: 91, &apos;正确率&apos;: &apos;60.67%&apos;}, {&apos;编号&apos;: &apos;228&apos;, &apos;标题&apos;: &apos;成绩排序2&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 95, &apos;正确数&apos;: 73, &apos;正确率&apos;: &apos;76.84%&apos;}, {&apos;编号&apos;: &apos;229&apos;, &apos;标题&apos;: &apos;分段函数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 232, &apos;正确数&apos;: 95, &apos;正确率&apos;: &apos;40.95%&apos;}, {&apos;编号&apos;: &apos;230&apos;, &apos;标题&apos;: &apos;整数和&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 166, &apos;正确数&apos;: 110, &apos;正确率&apos;: &apos;66.27%&apos;}, {&apos;编号&apos;: &apos;231&apos;, &apos;标题&apos;: &apos;围圈报数&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 54, &apos;正确数&apos;: 26, &apos;正确率&apos;: &apos;48.15%&apos;}, {&apos;编号&apos;: &apos;232&apos;, &apos;标题&apos;: &apos;C语言11.6&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 128, &apos;正确数&apos;: 97, &apos;正确率&apos;: &apos;75.78%&apos;}, {&apos;编号&apos;: &apos;233&apos;, &apos;标题&apos;: &apos;C语言11.7&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 92, &apos;正确数&apos;: 66, &apos;正确率&apos;: &apos;71.74%&apos;}, {&apos;编号&apos;: &apos;234&apos;, &apos;标题&apos;: &apos;C语言11.8&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 118, &apos;正确数&apos;: 68, &apos;正确率&apos;: &apos;57.63%&apos;}, {&apos;编号&apos;: &apos;235&apos;, &apos;标题&apos;: &apos;C语言11.10&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 45, &apos;正确数&apos;: 27, &apos;正确率&apos;: &apos;60.0%&apos;}, {&apos;编号&apos;: &apos;236&apos;, &apos;标题&apos;: &apos;C语言11.12&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 43, &apos;正确数&apos;: 17, &apos;正确率&apos;: &apos;39.53%&apos;}, {&apos;编号&apos;: &apos;237&apos;, &apos;标题&apos;: &apos;C语言11.13&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 39, &apos;正确数&apos;: 20, &apos;正确率&apos;: &apos;51.28%&apos;}, {&apos;编号&apos;: &apos;238&apos;, &apos;标题&apos;: &apos;C语言11.14&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 32, &apos;正确数&apos;: 26, &apos;正确率&apos;: &apos;81.25%&apos;}, {&apos;编号&apos;: &apos;239&apos;, &apos;标题&apos;: &apos;C语言12.1&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 128, &apos;正确数&apos;: 29, &apos;正确率&apos;: &apos;22.66%&apos;}, {&apos;编号&apos;: &apos;240&apos;, &apos;标题&apos;: &apos;C语言12.2&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 18, &apos;正确数&apos;: 16, &apos;正确率&apos;: &apos;88.89%&apos;}, {&apos;编号&apos;: &apos;241&apos;, &apos;标题&apos;: &apos;C语言12.3&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 19, &apos;正确数&apos;: 15, &apos;正确率&apos;: &apos;78.95%&apos;}, {&apos;编号&apos;: &apos;242&apos;, &apos;标题&apos;: &apos;C语言12.4&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 17, &apos;正确数&apos;: 13, &apos;正确率&apos;: &apos;76.47%&apos;}, {&apos;编号&apos;: &apos;243&apos;, &apos;标题&apos;: &apos;C语言12.5&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 26, &apos;正确数&apos;: 14, &apos;正确率&apos;: &apos;53.85%&apos;}]
+[{&apos;编号&apos;: &apos;244&apos;, &apos;标题&apos;: &apos;C语言12.6&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 41, &apos;正确数&apos;: 26, &apos;正确率&apos;: &apos;63.41%&apos;}, {&apos;编号&apos;: &apos;245&apos;, &apos;标题&apos;: &apos;算法3-7：银行排队&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 3, &apos;正确数&apos;: 3, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;246&apos;, &apos;标题&apos;: &apos;完数&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 260, &apos;正确数&apos;: 59, &apos;正确率&apos;: &apos;22.69%&apos;}, {&apos;编号&apos;: &apos;247&apos;, &apos;标题&apos;: &apos;字符串连接&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 136, &apos;正确数&apos;: 61, &apos;正确率&apos;: &apos;44.85%&apos;}, {&apos;编号&apos;: &apos;249&apos;, &apos;标题&apos;: &apos;求最大值&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 228, &apos;正确数&apos;: 84, &apos;正确率&apos;: &apos;36.84%&apos;}, {&apos;编号&apos;: &apos;250&apos;, &apos;标题&apos;: &apos;A + B&apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 59, &apos;正确数&apos;: 34, &apos;正确率&apos;: &apos;57.63%&apos;}, {&apos;编号&apos;: &apos;251&apos;, &apos;标题&apos;: &apos;数字求和&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 228, &apos;正确数&apos;: 93, &apos;正确率&apos;: &apos;40.79%&apos;}, {&apos;编号&apos;: &apos;252&apos;, &apos;标题&apos;: &apos;素数判定&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 324, &apos;正确数&apos;: 102, &apos;正确率&apos;: &apos;31.48%&apos;}, {&apos;编号&apos;: &apos;253&apos;, &apos;标题&apos;: &apos;计算表达式&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 46, &apos;正确数&apos;: 20, &apos;正确率&apos;: &apos;43.48%&apos;}, {&apos;编号&apos;: &apos;254&apos;, &apos;标题&apos;: &apos;第二题&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 9, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;11.11%&apos;}, {&apos;编号&apos;: &apos;255&apos;, &apos;标题&apos;: &apos;统计字符&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 103, &apos;正确数&apos;: 47, &apos;正确率&apos;: &apos;45.63%&apos;}, {&apos;编号&apos;: &apos;256&apos;, &apos;标题&apos;: &apos;密码锁&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 7, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;28.57%&apos;}, {&apos;编号&apos;: &apos;257&apos;, &apos;标题&apos;: &apos;字符串的反码&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 142, &apos;正确数&apos;: 50, &apos;正确率&apos;: &apos;35.21%&apos;}, {&apos;编号&apos;: &apos;259&apos;, &apos;标题&apos;: &apos;最长&amp;最短文本&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 52, &apos;正确数&apos;: 18, &apos;正确率&apos;: &apos;34.62%&apos;}, {&apos;编号&apos;: &apos;260&apos;, &apos;标题&apos;: &apos;统计单词&apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 127, &apos;正确数&apos;: 38, &apos;正确率&apos;: &apos;29.92%&apos;}, {&apos;编号&apos;: &apos;261&apos;, &apos;标题&apos;: &apos;ZOJ问题&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 20, &apos;正确数&apos;: 2, &apos;正确率&apos;: &apos;10.0%&apos;}, {&apos;编号&apos;: &apos;262&apos;, &apos;标题&apos;: &apos;奥运排序问题 &apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 1, &apos;正确数&apos;: 1, &apos;正确率&apos;: &apos;100.0%&apos;}, {&apos;编号&apos;: &apos;263&apos;, &apos;标题&apos;: &apos;还是畅通工程&apos;, &apos;难度&apos;: &apos;困难&apos;, &apos;提交量&apos;: 15, &apos;正确数&apos;: 4, &apos;正确率&apos;: &apos;26.67%&apos;}, {&apos;编号&apos;: &apos;264&apos;, &apos;标题&apos;: &apos;剩下的树 &apos;, &apos;难度&apos;: &apos;中等&apos;, &apos;提交量&apos;: 8, &apos;正确数&apos;: 5, &apos;正确率&apos;: &apos;62.5%&apos;}, {&apos;编号&apos;: &apos;265&apos;, &apos;标题&apos;: &apos;整数奇偶排序 &apos;, &apos;难度&apos;: &apos;简单&apos;, &apos;提交量&apos;: 92, &apos;正确数&apos;: 55, &apos;正确率&apos;: &apos;59.78%&apos;}]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.style <span class="keyword">as</span> psl</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">psl.use(<span class="string">'seaborn-colorblind'</span>)    <span class="comment"># 设置图表风格</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>] <span class="comment">#用来正常显示中文标签</span></span><br><span class="line"></span><br><span class="line">data=pd.read_csv(<span class="string">"qiye.csv"</span>)</span><br><span class="line">data.head()<span class="comment">#查看前五条数据</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>编号</th>
+      <th>标题</th>
+      <th>难度</th>
+      <th>提交量</th>
+      <th>正确数</th>
+      <th>正确率</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>2^k进制数</td>
+      <td>中等</td>
+      <td>274</td>
+      <td>72</td>
+      <td>26.28%</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>4</td>
+      <td>马拦过河卒</td>
+      <td>中等</td>
+      <td>288</td>
+      <td>133</td>
+      <td>46.18%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>5</td>
+      <td>产生数</td>
+      <td>困难</td>
+      <td>310</td>
+      <td>33</td>
+      <td>10.65%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>6</td>
+      <td>【排队买票】</td>
+      <td>中等</td>
+      <td>445</td>
+      <td>194</td>
+      <td>43.6%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>9</td>
+      <td>【C语言训练】计算t=1+1/2+1/3+...+1/n</td>
+      <td>中等</td>
+      <td>1522</td>
+      <td>514</td>
+      <td>33.77%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.describe()<span class="comment">#统计数据信息</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>编号</th>
+      <th>提交量</th>
+      <th>正确数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>220.000000</td>
+      <td>220.000000</td>
+      <td>220.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>143.922727</td>
+      <td>197.554545</td>
+      <td>83.522727</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>74.688812</td>
+      <td>231.494000</td>
+      <td>105.106184</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>80.750000</td>
+      <td>41.000000</td>
+      <td>13.750000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>152.500000</td>
+      <td>128.000000</td>
+      <td>44.000000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>208.250000</td>
+      <td>276.500000</td>
+      <td>102.250000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>265.000000</td>
+      <td>1522.000000</td>
+      <td>549.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.作者所写</span></span><br><span class="line">psl.use(<span class="string">"seaborn-colorblind"</span>) <span class="comment"># 设置图表风格</span></span><br><span class="line"></span><br><span class="line">level_values=data[<span class="string">"难度"</span>].values</span><br><span class="line">difficulties=&#123;</span><br><span class="line">    <span class="string">"简单"</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="string">"中等"</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="string">"困难"</span>:<span class="number">0</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> level_values:</span><br><span class="line">    <span class="keyword">if</span> value == <span class="string">'简单'</span>:</span><br><span class="line">        difficulties[<span class="string">'简单'</span>] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> value == <span class="string">'中等'</span>:</span><br><span class="line">        difficulties[<span class="string">'中等'</span>] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        difficulties[<span class="string">'困难'</span>] += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">level=pd.Series(difficulties)</span><br><span class="line">print(level)</span><br><span class="line">level.plot(kind = <span class="string">'bar'</span>, figsize=(<span class="number">6</span>, <span class="number">7</span>))</span><br><span class="line">plt.grid(axis=<span class="string">'y'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>简单     59
+中等    128
+困难     33
+dtype: int64</code></pre><p><img src="output_3_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2.个人所写</span></span><br><span class="line">psl.use(<span class="string">"seaborn-colorblind"</span>) <span class="comment"># 设置图表风格</span></span><br><span class="line"></span><br><span class="line">level=data[<span class="string">"难度"</span>].value_counts()</span><br><span class="line">print(level)</span><br><span class="line">level.plot(kind = <span class="string">"bar"</span>, figsize=(<span class="number">6</span>, <span class="number">7</span>))</span><br><span class="line">plt.grid(axis=<span class="string">"y"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>中等    128
+简单     59
+困难     33
+Name: 难度, dtype: int64</code></pre><p><img src="output_4_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">fig,axes=plt.subplots(figsize=(<span class="number">15</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line">relation=data[[<span class="string">"难度"</span>,<span class="string">"正确率"</span>]]</span><br><span class="line">rate_values=relation[<span class="string">"正确率"</span>].values</span><br><span class="line">axes.scatter(rate_values,level_values)</span><br><span class="line"></span><br><span class="line">plt.grid(axis=<span class="string">"y"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"正确率"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"难度"</span>)</span><br><span class="line">plt.xticks([])<span class="comment"># 关闭坐标刻度</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="output_5_0.png" alt="png"></p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2019/12/24/%E6%8B%89%E5%8B%BE%E7%BD%91%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90/" title="拉勾网可视化分析" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2019/11/28/pandas%E5%88%86%E6%9E%90CPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E5%88%A9%E7%94%A8%E7%8E%87/" title="pandas分析CPU和内存的利用率" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/07/01/15-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%89%88%20oauth2.0%20%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1/" title="15-前后端分离版 oauth2.0 授权服务">
+								15-前后端分离版 oauth2.0 授权服务			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 1日, 2020				
+							</p>
+							<p class="relate-post-content">
+								大佬的gitee地址：https://gitee.com/blueses/spring-boot-security/tree/masterpom.xml12345678910111213141516171819202122232425...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/07/01/15-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%89%88%20oauth2.0%20%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1/" title="15-前后端分离版 oauth2.0 授权服务">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="15-前后端分离版 oauth2.0 授权服务"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/12/24/%E6%8B%89%E5%8B%BE%E7%BD%91%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90/" title="拉勾网可视化分析">
+								拉勾网可视化分析			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1234567891011121314# 原作者链接：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;24913ef14750import jsonimport numpy as npimp...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/12/24/%E6%8B%89%E5%8B%BE%E7%BD%91%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90/" title="拉勾网可视化分析">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="拉勾网可视化分析"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/28/pandas%E5%88%86%E6%9E%90CPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E5%88%A9%E7%94%A8%E7%8E%87/" title="pandas分析CPU和内存的利用率">
+								pandas分析CPU和内存的利用率			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 28日, 2019				
+							</p>
+							<p class="relate-post-content">
+								123456789101112131415161718192021# 【https://www.cnblogs.com/ratels/p/11037661.html】import csvimport psutilfrom time i...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/28/pandas%E5%88%86%E6%9E%90CPU%E5%92%8C%E5%86%85%E5%AD%98%E7%9A%84%E5%88%A9%E7%94%A8%E7%8E%87/" title="pandas分析CPU和内存的利用率">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="pandas分析CPU和内存的利用率"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/17/fabiaoqing/" title="fabiaoqing">
+								fabiaoqing			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/17/fabiaoqing/" title="fabiaoqing">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="fabiaoqing"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/15/Asyncio%20Queue/" title="Asyncio Queue">
+								Asyncio Queue			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								123456789101112131415161718192021222324252627282930313233343536373839404142434445import asyncioimport randomimport ti...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/15/Asyncio%20Queue/" title="Asyncio Queue">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Asyncio Queue"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/15/Asyncio%20Losk/" title="Asyncio Losk">
+								Asyncio Losk			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 15日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1234567891011121314151617181920212223242526272829303132333435363738394041import asyncioimport timeimport loggingimpor...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/15/Asyncio%20Losk/" title="Asyncio Losk">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Asyncio Losk"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/14/lagou/" title="拉勾网基础数据分析">
+								拉勾网基础数据分析			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 14日, 2019				
+							</p>
+							<p class="relate-post-content">
+								More info: 原作者的链接
+1.下载数据123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/14/lagou/" title="拉勾网基础数据分析">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="拉勾网基础数据分析"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/06/24/SpringBoot2.1.3-%E4%BD%BF%E7%94%A8Swagger2%E4%BB%8B%E7%BB%8D/" title="SpringBoot2.1.3-使用Swagger2介绍">
+								SpringBoot2.1.3-使用Swagger2介绍			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 24日, 2020				
+							</p>
+							<p class="relate-post-content">
+								pom.xml12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/06/24/SpringBoot2.1.3-%E4%BD%BF%E7%94%A8Swagger2%E4%BB%8B%E7%BB%8D/" title="SpringBoot2.1.3-使用Swagger2介绍">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="SpringBoot2.1.3-使用Swagger2介绍"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/06/08/springboot+vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%97%85%E6%B8%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B-%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E8%BF%87%E7%A8%8B/" title="springboot+vue前后端分离旅游项目实战教程-用户登陆过程">
+								springboot+vue前后端分离旅游项目实战教程-用户登陆过程			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								bilibili 陈艳男老师的实战课程
+
+1. 默认pom.xml 文件123456789101112131415161718192021222324252627282930313233343536373839404142434445...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/06/08/springboot+vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%97%85%E6%B8%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B-%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E8%BF%87%E7%A8%8B/" title="springboot+vue前后端分离旅游项目实战教程-用户登陆过程">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="springboot+vue前后端分离旅游项目实战教程-用户登陆过程"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="Java-桥接模式">
+								Java-桥接模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 3日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://zhuanlan.zhihu.com/p/98913119
+
+
+设计模式的六大原则
+
+1.开闭原则...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="Java-桥接模式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-桥接模式"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>

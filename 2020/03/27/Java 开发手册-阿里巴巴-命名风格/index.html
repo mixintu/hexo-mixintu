@@ -1,0 +1,859 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Java 开发手册-阿里巴巴-命名风格 | 迷心兔
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「Java 开发手册-阿里巴巴-命名风格」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2020/03/27/Java%20%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4-%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC/" itemprop="url">
+		Java 开发手册-阿里巴巴-命名风格
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2020/03/27/Java%20%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4-%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC/" itemprop="url">
+		<time datetime="2020-03-27T06:45:53.883Z" itemprop="dateUpdated">
+	  		2020-04-21
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">一、编程规约 (一)命名风格 </span><br><span class="line"></span><br><span class="line">1. 【强制】代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。</span><br><span class="line">	反例：_name &#x2F; __name &#x2F; $name &#x2F; name_ &#x2F; name$ &#x2F; name__</span><br><span class="line"></span><br><span class="line">2. 【强制】代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。</span><br><span class="line">	说明：正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用。</span><br><span class="line">	正例：alibaba &#x2F; taobao &#x2F; youku &#x2F; hangzhou 等国际通用的名称，可视同英文。</span><br><span class="line">	反例：DaZhePromotion [打折] &#x2F; getPingfenByName() [评分] &#x2F; int 某变量 &#x3D; 3</span><br><span class="line"></span><br><span class="line">3. 【强制】类名使用 UpperCamelCase 风格，但以下情形例外：DO &#x2F; BO &#x2F; DTO &#x2F; VO &#x2F; AO &#x2F; PO &#x2F; UID 等。</span><br><span class="line">	正例：MarcoPolo &#x2F; UserDO &#x2F; XmlService &#x2F; TcpUdpDeal &#x2F; TaPromotion</span><br><span class="line">	反例：macroPolo &#x2F; UserDo &#x2F; XMLService &#x2F; TCPUDPDeal &#x2F; TAPromotion</span><br><span class="line"></span><br><span class="line">4. 【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。</span><br><span class="line">	正例： localValue &#x2F; getHttpMessage() &#x2F; inputUserId</span><br><span class="line"></span><br><span class="line">5. 【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。</span><br><span class="line">	正例：MAX_STOCK_COUNT</span><br><span class="line">	反例：MAX_COUNT</span><br><span class="line"></span><br><span class="line">6. 【强制】抽象类命名使用 Abstract 或 Base 开头；异常类命名使用 Exception 结尾；测试类</span><br><span class="line">	命名以它要测试的类的名称开始，以 Test 结尾。</span><br><span class="line"></span><br><span class="line">7. 【强制】类型与中括号紧挨相连来表示数组。</span><br><span class="line">	正例：定义整形数组 int[] arrayDemo;</span><br><span class="line">	反例：在 main 参数中，使用 String args[]来定义。</span><br><span class="line"></span><br><span class="line">8. 【强制】POJO 类中布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误。</span><br><span class="line">	反例：定义为基本数据类型 Boolean isDeleted 的属性，它的方法也是 isDeleted()，RPC</span><br><span class="line">	框架在反向解析的时候，“误以为”对应的属性名称是 deleted，导致属性获取不到，进而抛</span><br><span class="line">	出异常。</span><br><span class="line"></span><br><span class="line">9. 【强制】包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用</span><br><span class="line">	单数形式，但是类名如果有复数含义，类名可以使用复数形式。</span><br><span class="line">	正例：应用工具类包名为 com.alibaba.ai.util、类名为 MessageUtils（此规则参考 spring</span><br><span class="line">	的框架结构）</span><br><span class="line"></span><br><span class="line">10. 【强制】杜绝完全不规范的缩写，避免望文不知义。</span><br><span class="line">	反例：AbstractClass“缩写”命名成 AbsClass；condition“缩写”命名成 condi，此类随</span><br><span class="line">	意缩写严重降低了代码的可阅读性。</span><br><span class="line"></span><br><span class="line">11. 【推荐】为了达到代码自解释的目标，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达其意。</span><br><span class="line">	正例：在 JDK 中，表达原子更新的类名为：AtomicReferenceFieldUpdater。</span><br><span class="line">	反例：变量 int a 的随意命名方式。</span><br><span class="line"></span><br><span class="line">12. 【推荐】如果模块、接口、类、方法使用了设计模式，在命名时需体现出具体模式。</span><br><span class="line">	说明：将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。</span><br><span class="line">	正例：public class OrderFactory;</span><br><span class="line">	 	public class LoginProxy;</span><br><span class="line">		public class ResourceObserver;</span><br><span class="line"></span><br><span class="line">13. 【推荐】接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁</span><br><span class="line">	性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是</span><br><span class="line">	与接口方法相关，并且是整个应用的基础常量。</span><br><span class="line"></span><br><span class="line">	正例：接口方法签名 void commit();</span><br><span class="line">	 	接口基础常量 String COMPANY &#x3D; &quot;alibaba&quot;;</span><br><span class="line">	反例：接口方法定义 public abstract void f();</span><br><span class="line">		说明：JDK8 中接口允许有默认实现，那么这个 default 方法，是对所有实现类都有价值的默</span><br><span class="line">		认实现。</span><br><span class="line"></span><br><span class="line">14. 接口和实现类的命名有两套规则：</span><br><span class="line">	1）【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部</span><br><span class="line">		的实现类用 Impl 的后缀与接口区别。</span><br><span class="line">		正例：CacheServiceImpl 实现 CacheService 接口。</span><br><span class="line">	2）【推荐】如果是形容能力的接口名称，取对应的形容词为接口名（通常是–able 的形式）。</span><br><span class="line">		正例：AbstractTranslator 实现 Translatable 接口。</span><br><span class="line"></span><br><span class="line">15. 【参考】枚举类名建议带上 Enum 后缀，枚举成员名称需要全大写，单词间用下划线隔开。</span><br><span class="line">	说明：枚举其实就是特殊的类，域成员均为常量，且构造方法被默认强制是私有。</span><br><span class="line">	正例：枚举名字为 ProcessStatusEnum 的成员名称：SUCCESS &#x2F; UNKNOWN_REASON。</span><br><span class="line"></span><br><span class="line">16. 【参考】各层命名规约：</span><br><span class="line">	A) Service&#x2F;DAO 层方法命名规约</span><br><span class="line">		1） 获取单个对象的方法用 get 做前缀。</span><br><span class="line">		2） 获取多个对象的方法用 list 做前缀，复数形式结尾如：listObjects。 3） 获取统计值的方法用 count 做前缀。 4） 插入的方法用 save&#x2F;insert 做前缀。</span><br><span class="line">		5） 删除的方法用 remove&#x2F;delete 做前缀。</span><br><span class="line">		6） 修改的方法用 update 做前缀。</span><br><span class="line">	B) 领域模型命名规约</span><br><span class="line">		1） 数据对象：xxxDO，xxx 即为数据表名。</span><br><span class="line">		2） 数据传输对象：xxxDTO，xxx 为业务领域相关的名称。</span><br><span class="line">		3） 展示对象：xxxVO，xxx 一般为网页名称。</span><br><span class="line">		4） POJO 是 DO&#x2F;DTO&#x2F;BO&#x2F;VO 的统称，禁止命名成 xxxPOJO。</span><br></pre></td></tr></table></figure>	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2020/03/29/Java-md5%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86/" title="Java-md5简单加密" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2020/03/26/Java-%E5%86%92%E6%B3%A1%EF%BC%8C%E9%80%89%E6%8B%A9%E5%92%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E5%AE%9E%E4%BE%8B/" title="Java-冒泡，选择和插入排序实例" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="Java-桥接模式">
+								Java-桥接模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 3日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://zhuanlan.zhihu.com/p/98913119
+
+
+设计模式的六大原则
+
+1.开闭原则...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="Java-桥接模式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-桥接模式"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/27/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F3/" title="Java-适配器模式3">
+								Java-适配器模式3			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 27日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://www.runoob.com/design-pattern/adapter-pattern.htm...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/27/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F3/" title="Java-适配器模式3">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-适配器模式3"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/23/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F1/" title="Java-适配器模式1">
+								Java-适配器模式1			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://refactoringguru.cn/design-patterns/adapter/java/e...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/23/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F1/" title="Java-适配器模式1">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-适配器模式1"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/08/Java-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F2/" title="Java-建造者模式2">
+								Java-建造者模式2			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://zhuanlan.zhihu.com/p/98450781
+
+
+设计模式的六大原则
+
+1.开闭原则...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/08/Java-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F2/" title="Java-建造者模式2">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-建造者模式2"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/08/Java-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" title="Java-建造者模式">
+								Java-建造者模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://www.runoob.com/design-pattern/builder-pattern.htm...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/08/Java-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" title="Java-建造者模式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-建造者模式"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/08/Java-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F2/" title="Java-原型模式2">
+								Java-原型模式2			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://www.cnblogs.com/programmerkaixin/p/10969745.html
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/08/Java-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F2/" title="Java-原型模式2">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-原型模式2"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/08/Java-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" title="Java-原型模式">
+								Java-原型模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://www.runoob.com/design-pattern/prototype-pattern.h...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/08/Java-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" title="Java-原型模式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-原型模式"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/07/Java-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" title="Java-抽象工厂模式">
+								Java-抽象工厂模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 7日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://www.runoob.com/design-pattern/abstract-factory-pa...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/07/Java-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" title="Java-抽象工厂模式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-抽象工厂模式"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/07/Java-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" title="Java-工厂模式">
+								Java-工厂模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 7日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://www.runoob.com/design-pattern/factory-pattern.htm...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/07/Java-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" title="Java-工厂模式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-工厂模式"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/04/Java-%E5%AD%97%E7%AC%A6%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86/" title="Java-字符加密和解密">
+								Java-字符加密和解密			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 4日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://github.com/zmh3788/thesixsectorTeam原文：https://blog.csdn.net/manmonth2004/article/details/83642676
+12345678...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/04/Java-%E5%AD%97%E7%AC%A6%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86/" title="Java-字符加密和解密">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-字符加密和解密"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>

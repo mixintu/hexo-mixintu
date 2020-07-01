@@ -1,0 +1,884 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Git-分支 | 迷心兔
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「Git-分支」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2020/03/06/Git-%E5%88%86%E6%94%AF/" itemprop="url">
+		Git-分支
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2020/03/06/Git-%E5%88%86%E6%94%AF/" itemprop="url">
+		<time datetime="2020-03-06T12:34:48.360Z" itemprop="dateUpdated">
+	  		2020-04-21
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>迷心兔</p>
+<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B" target="_blank" rel="noopener">学习链接</a></p>
+<p>注解：分支合并和变基用到的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># $ git log --oneline --decorate</span><br><span class="line">查看各个分支当前所指的对象</span><br><span class="line"></span><br><span class="line"># $ git log --oneline --decorate --graph --all</span><br><span class="line">输出你的提交历史、各个分支的指向以及项目的分支分叉情况</span><br><span class="line"></span><br><span class="line"># $ git branch testing</span><br><span class="line">创建一个 testing 分支</span><br><span class="line"></span><br><span class="line"># $ git checkout testing</span><br><span class="line">切换到testing分支上</span><br><span class="line"></span><br><span class="line">便携方式：</span><br><span class="line">$ git commit -a -m &#39;提交说明&#39;</span><br><span class="line">添加到暂存区再提交到本地版本库【我这里无效，需要自己先git add *】</span><br><span class="line"></span><br><span class="line">$ git checkout -b iss53		&#x3D;&gt;		$ git branch iss53</span><br><span class="line">新建分支并切换到分支上				$ git checkout iss53</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="1-分支的新建-例子："><a href="#1-分支的新建-例子：" class="headerlink" title="1.分支的新建-例子："></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B" target="_blank" rel="noopener">1.分支的新建-例子：</a></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git log --oneline --decorate</span><br><span class="line">b3b98a2 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Merge branch &#39;iss53&#39;</span><br><span class="line">54c19fc (hotfix) 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">d285c00 (iss53) 第一：iss53 - 分支 index.html - mixintu</span><br><span class="line">7729454 Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git branch -d hotfix</span><br><span class="line">Deleted branch hotfix (was 54c19fc).</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git branch -d iss53</span><br><span class="line">Deleted branch iss53 (was d285c00).</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git log --oneline --decorate</span><br><span class="line">b3b98a2 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Merge branch &#39;iss53&#39;</span><br><span class="line">54c19fc 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">d285c00 第一：iss53 - 分支 index.html - mixintu</span><br><span class="line">7729454 Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git branch testing</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git checkout testing</span><br><span class="line">Switched to branch &#39;testing&#39;</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (testing)</span><br><span class="line">$ vim test.txt</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (testing)</span><br><span class="line">$ git add test.txt</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (testing)</span><br><span class="line">$ git commit -a -m &#39;第一：testing - 分支 test.txt - mixintu&#39;</span><br><span class="line">[testing d7fdc1e] 第一：testing - 分支 test.txt - mixintu</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 test.txt</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (testing)</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ xim test.txt</span><br><span class="line">bash: xim: command not found</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ vim test.txt</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git add test.txt</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git commit -a -m &#39;第二：master - 分支 test.txt - mixintu&#39;</span><br><span class="line">[master 3c7c951] 第二：master - 分支 test.txt - mixintu</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 test.txt</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* 3c7c951 (HEAD -&gt; master) 第二：master - 分支 test.txt - mixintu</span><br><span class="line">| * d7fdc1e (testing) 第一：testing - 分支 test.txt - mixintu</span><br><span class="line">|&#x2F;</span><br><span class="line">*   b3b98a2 (origin&#x2F;master, origin&#x2F;HEAD) Merge branch &#39;iss53&#39;</span><br><span class="line">|\</span><br><span class="line">| * d285c00 第一：iss53 - 分支 index.html - mixintu</span><br><span class="line">* | 54c19fc 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">|&#x2F;</span><br><span class="line">* 7729454 Initial commit</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2-分支的新建和合并-例子："><a href="#2-分支的新建和合并-例子：" class="headerlink" title="2.分支的新建和合并-例子："></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6" target="_blank" rel="noopener">2.分支的新建和合并-例子：</a></h1><p><img src="%E7%AC%AC%E4%B8%80%EF%BC%9Amaster-%E5%88%86%E6%94%AF.png" alt="第一：master-分支"><br><img src="%E7%AC%AC%E4%BA%8C%EF%BC%9A%E6%B7%BB%E5%8A%A0iss53%E5%88%86%E6%94%AF.png" alt="第二：添加iss53分支"><br><img src="%E7%AC%AC%E4%B8%89%EF%BC%9A%E5%9C%A8iss53%E5%88%86%E6%94%AF%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%B9%B6%E6%8F%90%E4%BA%A4.png" alt="第三：在iss53分支新建文件并提交"><br><img src="%E7%AC%AC%E5%9B%9B%EF%BC%9A%E6%B7%BB%E5%8A%A0hotfix%E5%88%86%E6%94%AF-%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%B9%B6%E6%8F%90%E4%BA%A4.png" alt="第四：添加hotfix分支-新建文件并提交"><br><img src="%E7%AC%AC%E4%BA%94%EF%BC%9A%E5%90%88%E5%B9%B6hotfix%E5%92%8Cmaster%E5%88%86%E6%94%AF.png" alt="第五：合并hotfix和master分支"><br><img src="%E7%AC%AC%E5%85%AD%EF%BC%9A%E5%88%87%E6%8D%A2%E5%88%B0iss53%E5%88%86%E6%94%AF%E4%BF%AE%E6%94%B9%E5%B9%B6%E6%8F%90%E4%BA%A4.png" alt="第六：切换到iss53分支修改并提交【就是hotfix分支做了什么，iss53分支就做什么】"><br><img src="%E7%AC%AC%E4%B8%83%EF%BC%9A%E5%AF%B9master%E5%92%8Ciss53%E5%88%86%E6%94%AF%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AF%B4%E6%98%8E.png" alt="第七：对master和iss53分支的一些说明"><br><img src="%E7%AC%AC%E5%85%AB%EF%BC%9A%E5%90%88%E5%B9%B6master%E5%92%8Ciss53%E5%88%86%E6%94%AF.png" alt="第八：合并master和iss53分支"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all # 第一：master-分支</span><br><span class="line">* 7729454 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git checkout -b iss53 # 第二：添加iss53分支</span><br><span class="line">Switched to a new branch &#39;iss53&#39;</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (iss53)</span><br><span class="line">$ vim index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (iss53)</span><br><span class="line">$ git add index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (iss53)</span><br><span class="line">$ git commit -a -m &#39;第一：iss53 - 分支 index.html - mixintu&#39; # 第三：在iss53分支新建文件并提交</span><br><span class="line">[iss53 d285c00] 第一：iss53 - 分支 index.html - mixintu</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (iss53)</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* d285c00 (iss53) 第一：iss53 - 分支 index.html - mixintu</span><br><span class="line">* 7729454 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git checkout -b hotfix</span><br><span class="line">Switched to a new branch &#39;hotfix&#39;</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (hotfix)</span><br><span class="line">$ vim index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (hotfix)</span><br><span class="line">$ git add index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (hotfix)</span><br><span class="line">$ git commit -a -m &#39;第二：hotfix - 分支 index.html - mixintu&#39; # 第四：添加hotfix分支-新建文件并提交</span><br><span class="line">[hotfix 54c19fc] 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (hotfix)</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* 54c19fc (hotfix) 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">| * d285c00 (iss53) 第一：iss53 - 分支 index.html - mixintu</span><br><span class="line">|&#x2F;</span><br><span class="line">* 7729454 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git merge hotfix # 第五：合并hotfix和master分支</span><br><span class="line">Updating 7729454..54c19fc</span><br><span class="line">Fast-forward</span><br><span class="line"> index.html | 1 +</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git merge iss53 # 第八：合并master和iss53分支</span><br><span class="line">Merge made by the &#39;recursive&#39; strategy.</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">*   b3b98a2 (HEAD -&gt; master) Merge branch &#39;iss53&#39;</span><br><span class="line">|\</span><br><span class="line">| * d285c00 (iss53) 第一：iss53 - 分支 index.html - mixintu</span><br><span class="line">* | 54c19fc (hotfix) 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">|&#x2F;</span><br><span class="line">* 7729454 (origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#39;origin&#x2F;master&#39; by 3 commits.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git remote</span><br><span class="line">origin</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git push origin master</span><br><span class="line">fatal: HttpRequestException encountered.</span><br><span class="line">   ▒▒▒▒▒▒▒▒ʱ▒▒▒▒</span><br><span class="line">remote: Invalid username or password.</span><br><span class="line">fatal: Authentication failed for &#39;https:&#x2F;&#x2F;github.com&#x2F;mixintu&#x2F;Git-Test.git&#x2F;&#39;</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-Test (master)</span><br><span class="line">$ git push origin master</span><br><span class="line">Enumerating objects: 6, done.</span><br><span class="line">Counting objects: 100% (6&#x2F;6), done.</span><br><span class="line">Delta compression using up to 4 threads</span><br><span class="line">Compressing objects: 100% (4&#x2F;4), done.</span><br><span class="line">Writing objects: 100% (5&#x2F;5), 562 bytes | 562.00 KiB&#x2F;s, done.</span><br><span class="line">Total 5 (delta 1), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (1&#x2F;1), done.</span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;mixintu&#x2F;Git-Test.git</span><br><span class="line">   7729454..b3b98a2  master -&gt; master</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="3-简单的变基-例子："><a href="#3-简单的变基-例子：" class="headerlink" title="3.简单的变基-例子："></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA" target="_blank" rel="noopener">3.简单的变基-例子：</a></h1><p><img src="%E7%AC%AC1%EF%BC%9A%E7%B1%BB%E4%BC%BC%E5%89%8D%E9%9D%A2%E7%9A%84%EF%BC%8C%E6%8A%8Amaster%E5%92%8Chotfix%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E3%80%90experiment%E5%88%86%E6%94%AF%E5%A5%BD%E6%AF%94%E6%98%AFiss53%E5%88%86%E6%94%AF%E3%80%91.png" alt="第1：类似前面的，把master和hotfix分支合并【experiment分支好比是iss53分支】"><br><img src="%E6%B3%A8%E8%A7%A3%EF%BC%9A%E8%BF%99%E4%B8%80%E5%BC%A0%E4%B8%8D%E7%AE%97%E5%8F%98%E5%9F%BA.png" alt="注解：这一张不算变基"><br><img src="%E7%AC%AC2%EF%BC%9A%E5%AF%B9experiment%E5%88%86%E6%94%AF%E8%BF%9B%E8%A1%8C%E5%8F%98%E5%9F%BA.png" alt="第2：对experiment分支进行变基"><br><img src="%E7%AC%AC3%EF%BC%9A%E5%90%88%E5%B9%B6master%E5%92%8Cexperiment%E5%88%86%E6%94%AF.png" alt="第3：合并master和experiment分支"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* dc2d483 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git checkout -b experiment</span><br><span class="line">Switched to a new branch &#39;experiment&#39;</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (experiment)</span><br><span class="line">$ vim index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (experiment)</span><br><span class="line">$ git add index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (experiment)</span><br><span class="line">$ git commit -a -m &#39;第一：experiment - 分支 index.html - mixintu&#39;</span><br><span class="line">[experiment f90b9b7] 第一：experiment - 分支 index.html - mixintu</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (experiment)</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* f90b9b7 (experiment) 第一：experiment - 分支 index.html - mixintu</span><br><span class="line">* dc2d483 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git checkout -b hotfix</span><br><span class="line">Switched to a new branch &#39;hotfix&#39;</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (hotfix)</span><br><span class="line">$ vim index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (hotfix)</span><br><span class="line">$ git add index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (hotfix)</span><br><span class="line">$ git commit -a -m &#39;第二：hotfix - 分支 index.html - mixintu&#39;</span><br><span class="line">[hotfix 5fdb36d] 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (hotfix)</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* 5fdb36d (hotfix) 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">| * f90b9b7 (experiment) 第一：experiment - 分支 index.html - mixintu</span><br><span class="line">|&#x2F;</span><br><span class="line">* dc2d483 (HEAD -&gt; master, origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git merge hotfix</span><br><span class="line">Updating dc2d483..5fdb36d</span><br><span class="line">Fast-forward</span><br><span class="line"> index.html | 1 +</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 index.html</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* 5fdb36d (HEAD -&gt; master, hotfix) 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">| * f90b9b7 (experiment) 第一：experiment - 分支 index.html - mixintu</span><br><span class="line">|&#x2F;</span><br><span class="line">* dc2d483 (origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git branch -d hotfix</span><br><span class="line">Deleted branch hotfix (was 5fdb36d).</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* 5fdb36d (HEAD -&gt; master) 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">| * f90b9b7 (experiment) 第一：experiment - 分支 index.html - mixintu</span><br><span class="line">|&#x2F;</span><br><span class="line">* dc2d483 (origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git checkout experiment</span><br><span class="line">Switched to branch &#39;experiment&#39;</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (experiment)</span><br><span class="line">$ git rebase master</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (experiment)</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is ahead of &#39;origin&#x2F;master&#39; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git merge experiment</span><br><span class="line">Already up to date.</span><br><span class="line"></span><br><span class="line">Administrator@SC-201812032148 MINGW64 &#x2F;f&#x2F;Git&#x2F;Test&#x2F;Git-test (master)</span><br><span class="line">$ git log --oneline --decorate --graph --all</span><br><span class="line">* 5fdb36d (HEAD -&gt; master, experiment) 第二：hotfix - 分支 index.html - mixintu</span><br><span class="line">* dc2d483 (origin&#x2F;master, origin&#x2F;HEAD) Initial commit</span><br></pre></td></tr></table></figure>	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2020/03/07/JavaScript%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7-%E6%96%B0%E8%AE%A4%E8%AF%86/" title="JavaScript对象的属性-新认识" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2020/03/05/Git-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2/" title="Git-查看提交历史" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/05/Git-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2/" title="Git-查看提交历史">
+								Git-查看提交历史			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 5日, 2020				
+							</p>
+							<p class="relate-post-content">
+								git查看提交历史
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/05/Git-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2/" title="Git-查看提交历史">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Git-查看提交历史"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/05/Git-%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" title="Git-版本回退">
+								Git-版本回退			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 5日, 2020				
+							</p>
+							<p class="relate-post-content">
+								git 版本回退12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758Ad...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/05/Git-%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" title="Git-版本回退">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Git-版本回退"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/03/04/Git-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="Git-基础学习">
+								Git-基础学习			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 4日, 2020				
+							</p>
+							<p class="relate-post-content">
+								迷心兔
+VCS：版本控制系统 【保存所有修订版本，缺点：一不小心会写错文件或者覆盖意想外的文件】CVCS：集中化的版本控制系统 【让在不同系统上的开发者协同工作，缺点：整个项目的历史记录被保存在单一位置】DVCS：分布式版本控制系统 ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/03/04/Git-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="Git-基础学习">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Git-基础学习"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/07/01/15-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%89%88%20oauth2.0%20%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1/" title="15-前后端分离版 oauth2.0 授权服务">
+								15-前后端分离版 oauth2.0 授权服务			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 1日, 2020				
+							</p>
+							<p class="relate-post-content">
+								大佬的gitee地址：https://gitee.com/blueses/spring-boot-security/tree/masterpom.xml12345678910111213141516171819202122232425...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/07/01/15-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%89%88%20oauth2.0%20%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1/" title="15-前后端分离版 oauth2.0 授权服务">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="15-前后端分离版 oauth2.0 授权服务"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/06/24/SpringBoot2.1.3-%E4%BD%BF%E7%94%A8Swagger2%E4%BB%8B%E7%BB%8D/" title="SpringBoot2.1.3-使用Swagger2介绍">
+								SpringBoot2.1.3-使用Swagger2介绍			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 24日, 2020				
+							</p>
+							<p class="relate-post-content">
+								pom.xml12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/06/24/SpringBoot2.1.3-%E4%BD%BF%E7%94%A8Swagger2%E4%BB%8B%E7%BB%8D/" title="SpringBoot2.1.3-使用Swagger2介绍">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="SpringBoot2.1.3-使用Swagger2介绍"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/06/08/springboot+vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%97%85%E6%B8%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B-%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E8%BF%87%E7%A8%8B/" title="springboot+vue前后端分离旅游项目实战教程-用户登陆过程">
+								springboot+vue前后端分离旅游项目实战教程-用户登陆过程			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								bilibili 陈艳男老师的实战课程
+
+1. 默认pom.xml 文件123456789101112131415161718192021222324252627282930313233343536373839404142434445...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/06/08/springboot+vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%97%85%E6%B8%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B-%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E8%BF%87%E7%A8%8B/" title="springboot+vue前后端分离旅游项目实战教程-用户登陆过程">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="springboot+vue前后端分离旅游项目实战教程-用户登陆过程"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="Java-桥接模式">
+								Java-桥接模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 3日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://zhuanlan.zhihu.com/p/98913119
+
+
+设计模式的六大原则
+
+1.开闭原则...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/05/03/Java-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="Java-桥接模式">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-桥接模式"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/27/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F3/" title="Java-适配器模式3">
+								Java-适配器模式3			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 27日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://www.runoob.com/design-pattern/adapter-pattern.htm...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/27/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F3/" title="Java-适配器模式3">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-适配器模式3"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/23/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F1/" title="Java-适配器模式1">
+								Java-适配器模式1			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2020				
+							</p>
+							<p class="relate-post-content">
+								原文：https://www.liangzl.com/get-article-detail-169632.html原文：https://refactoringguru.cn/design-patterns/adapter/java/e...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/23/Java-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F1/" title="Java-适配器模式1">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Java-适配器模式1"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/04/18/tmp/" title="tmp">
+								tmp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 18日, 2020				
+							</p>
+							<p class="relate-post-content">
+								1234567891011121314151617181920212223242526v-model：双向绑定v-html：用于输出 html 代码v-bind：用于给html标签设置计算属性，内联字符串拼接，表达式，调用函数，使用对...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/04/18/tmp/" title="tmp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="tmp"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
